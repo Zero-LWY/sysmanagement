@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jluzh.sysmanagement.infra.mapper.RoleToAreaMapper">
+  <resultMap id="BaseResultMap" type="com.jluzh.sysmanagement.domain.entity.RoleToArea">
+    <!--@mbg.generated-->
+    <id column="role_id" jdbcType="INTEGER" property="roleId" />
+    <id column="area_id" jdbcType="INTEGER" property="areaId" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    <!--@mbg.generated-->
+    delete from pm_sys_role_area
+    where role_id = #{roleId,jdbcType=INTEGER}
+      and area_id = #{areaId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jluzh.sysmanagement.domain.entity.RoleToArea">
+    <!--@mbg.generated-->
+    insert into pm_sys_role_area (role_id, area_id)
+    values (#{roleId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jluzh.sysmanagement.domain.entity.RoleToArea">
+    <!--@mbg.generated-->
+    insert into pm_sys_role_area
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="roleId != null">
+        role_id,
+      </if>
+      <if test="areaId != null">
+        area_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="roleId != null">
+        #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null">
+        #{areaId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

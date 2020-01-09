@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jluzh.sysmanagement.infra.mapper.UserMapper">
+    <sql id = "all_user_columns">
+            USER_ID,DEPT_ID,LOGIN_NAME,PASSWORD,
+            USER_NO,USER_NAME,EMAIL,PHONE,MOBILE,
+            UPDATE_BY,UPDATE_DATE,REMARKS
+    </sql>
+
+    <select id="selectUserList" parameterType="com.jluzh.sysmanagement.domain.entity.User"
+            resultType="com.jluzh.sysmanagement.domain.entity.User">
+        select
+        <include refid="all_user_columns"/>
+        from pm_sys_user
+        where login_name = #{loginName} and password = #{password}
+    </select>
+
+</mapper>

@@ -1,0 +1,73 @@
+spring:
+  datasource:
+    name: mysql
+    url: jdbc:mysql://localhost:3306/sysmanagement?characterEncoding=utf-8&useSSL=false
+    #url: jdbc:mysql://122.51.242.220:3306/wms_inventory?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      # 监控统计用的filter:stat 日志用的filter:log4j 防御sql注入的filter:wall
+      filters: stat
+      # 最大连接池数量
+      maxActive: 20
+      # 初始化时建立物理连接的个数。初始化发生在显示调用init方法，或者第一次getConnection时
+      initialSize: 1
+      # 获取连接时最大等待时间，单位毫秒
+      maxWait: 60000
+      # 最小连接池数量
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      # 连接保持空闲而不被驱逐的最长时间
+      minEvictableIdleTimeMillis: 300000
+      # 是否缓存preparedStatement，即PSCache
+      poolPreparedStatements: false
+      # 要启用PSCache，必须配置大于0，当大于0时，poolPreparedStatements自动触发修改为true
+      maxOpenPreparedStatements: -1
+  application:
+    name: sysmanagement
+  mail:
+    host: smtp.163.com
+    username: 13226546492@163.com
+    password: gdFKiTJkaXmP8VH
+    from: 13226546492@163.com
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+  rabbitmq:
+    host: 172.17.187.65
+    port: 5672
+    username: guest
+    password: lwy
+    publisher-returns: true
+    listener:
+      simple:
+        acknowledge-mode: manual
+        prefetch: 100
+# pagehelper分页插件
+pagehelper:
+  # 数据库的方言
+  helperDialect: mysql
+  # 启用合理化，如果pageNum < 1会查询第一页，如果pageNum > pages会查询最后一页
+  reasonable: true
+mybatis:
+  # mapper.xml包地址
+  mapper-locations: classpath:mappers/*.xml
+  # pojo生成包地址
+  type-aliases-package: com.spring.demo.springbootexample.mybatis.po
+  configuration:
+    #开启驼峰命名
+    map-underscore-to-camel-case: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'prometheus'
+  metrics:
+    tags:
+      application: ${spring.application.name}

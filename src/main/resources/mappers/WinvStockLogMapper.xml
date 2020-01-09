@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jluzh.sysmanagement.infra.mapper.WinvStockLogMapper">
+  <resultMap id="BaseResultMap" type="com.jluzh.sysmanagement.domain.entity.WinvStockLog">
+    <!--@mbg.generated-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="bill_id" jdbcType="BIGINT" property="billId" />
+    <result column="bill_line_id" jdbcType="BIGINT" property="billLineId" />
+    <result column="bill_code" jdbcType="VARCHAR" property="billCode" />
+    <result column="bill_type_id" jdbcType="BIGINT" property="billTypeId" />
+    <result column="bill_type" jdbcType="VARCHAR" property="billType" />
+    <result column="source_bill_id" jdbcType="BIGINT" property="sourceBillId" />
+    <result column="source_bill_code" jdbcType="VARCHAR" property="sourceBillCode" />
+    <result column="sync_bill_code" jdbcType="VARCHAR" property="syncBillCode" />
+    <result column="org_id" jdbcType="BIGINT" property="orgId" />
+    <result column="org_code" jdbcType="VARCHAR" property="orgCode" />
+    <result column="warehouse_id" jdbcType="BIGINT" property="warehouseId" />
+    <result column="warehouse_code" jdbcType="VARCHAR" property="warehouseCode" />
+    <result column="owner_id" jdbcType="BIGINT" property="ownerId" />
+    <result column="owner_code" jdbcType="VARCHAR" property="ownerCode" />
+    <result column="wharea_id" jdbcType="BIGINT" property="whareaId" />
+    <result column="wharea_code" jdbcType="VARCHAR" property="whareaCode" />
+    <result column="location_id" jdbcType="BIGINT" property="locationId" />
+    <result column="location_code" jdbcType="VARCHAR" property="locationCode" />
+    <result column="cid_id" jdbcType="BIGINT" property="cidId" />
+    <result column="cid_code" jdbcType="VARCHAR" property="cidCode" />
+    <result column="goods_id" jdbcType="BIGINT" property="goodsId" />
+    <result column="sku" jdbcType="VARCHAR" property="sku" />
+    <result column="batch_id" jdbcType="BIGINT" property="batchId" />
+    <result column="batch_code" jdbcType="VARCHAR" property="batchCode" />
+    <result column="uom_id" jdbcType="BIGINT" property="uomId" />
+    <result column="uom_code" jdbcType="VARCHAR" property="uomCode" />
+    <result column="qty" jdbcType="DECIMAL" property="qty" />
+    <result column="second_uom_id" jdbcType="BIGINT" property="secondUomId" />
+    <result column="second_uom_code" jdbcType="VARCHAR" property="secondUomCode" />
+    <result column="second_qty" jdbcType="DECIMAL" property="secondQty" />
+    <result column="module_code" jdbcType="VARCHAR" property="moduleCode" />
+    <result column="function_code" jdbcType="VARCHAR" property="functionCode" />
+    <result column="log_type" jdbcType="VARCHAR" property="logType" />
+    <result column="log_date" jdbcType="TIMESTAMP" property="logDate" />
+    <result column="device_code" jdbcType="VARCHAR" property="deviceCode" />
+    <result column="upload_flag" jdbcType="BOOLEAN" property="uploadFlag" />
+    <result column="enabled_flag" jdbcType="BOOLEAN" property="enabledFlag" />
+    <result column="remark" jdbcType="LONGVARCHAR" property="remark" />
+    <result column="tenant_id" jdbcType="BIGINT" property="tenantId" />
+    <result column="object_version_number" jdbcType="BIGINT" property="objectVersionNumber" />
+    <result column="creation_date" jdbcType="TIMESTAMP" property="creationDate" />
+    <result column="created_by" jdbcType="BIGINT" property="createdBy" />
+    <result column="last_updated_by" jdbcType="BIGINT" property="lastUpdatedBy" />
+    <result column="last_update_date" jdbcType="TIMESTAMP" property="lastUpdateDate" />
+    <result column="ATTRIBUTE_CATEGORY" jdbcType="VARCHAR" property="attributeCategory" />
+    <result column="ATTRIBUTE1" jdbcType="VARCHAR" property="attribute1" />
+    <result column="ATTRIBUTE2" jdbcType="VARCHAR" property="attribute2" />
+    <result column="ATTRIBUTE3" jdbcType="VARCHAR" property="attribute3" />
+    <result column="ATTRIBUTE4" jdbcType="VARCHAR" property="attribute4" />
+    <result column="ATTRIBUTE5" jdbcType="VARCHAR" property="attribute5" />
+    <result column="ATTRIBUTE6" jdbcType="VARCHAR" property="attribute6" />
+    <result column="ATTRIBUTE7" jdbcType="VARCHAR" property="attribute7" />
+    <result column="ATTRIBUTE8" jdbcType="VARCHAR" property="attribute8" />
+    <result column="ATTRIBUTE9" jdbcType="VARCHAR" property="attribute9" />
+    <result column="ATTRIBUTE10" jdbcType="VARCHAR" property="attribute10" />
+    <result column="ATTRIBUTE11" jdbcType="VARCHAR" property="attribute11" />
+    <result column="ATTRIBUTE12" jdbcType="VARCHAR" property="attribute12" />
+    <result column="ATTRIBUTE13" jdbcType="VARCHAR" property="attribute13" />
+    <result column="ATTRIBUTE14" jdbcType="VARCHAR" property="attribute14" />
+    <result column="ATTRIBUTE15" jdbcType="VARCHAR" property="attribute15" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, bill_id, bill_line_id, bill_code, bill_type_id, bill_type, source_bill_id, source_bill_code, 
+    sync_bill_code, org_id, org_code, warehouse_id, warehouse_code, owner_id, owner_code, 
+    wharea_id, wharea_code, location_id, location_code, cid_id, cid_code, goods_id, sku, 
+    batch_id, batch_code, uom_id, uom_code, qty, second_uom_id, second_uom_code, second_qty, 
+    module_code, function_code, log_type, log_date, device_code, upload_flag, enabled_flag, 
+    remark, tenant_id, object_version_number, creation_date, created_by, last_updated_by, 
+    last_update_date, ATTRIBUTE_CATEGORY, ATTRIBUTE1, ATTRIBUTE2, ATTRIBUTE3, ATTRIBUTE4, 
+    ATTRIBUTE5, ATTRIBUTE6, ATTRIBUTE7, ATTRIBUTE8, ATTRIBUTE9, ATTRIBUTE10, ATTRIBUTE11, 
+    ATTRIBUTE12, ATTRIBUTE13, ATTRIBUTE14, ATTRIBUTE15
+  </sql>
+  <select id="selectWinvStockLogList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+     from winv_stock_log;
+
+  </select>
+
+
+</mapper>
