@@ -8,6 +8,11 @@ import org.springframework.amqp.core.MessageProperties;
 
 public class MessageHelper {
 
+	private MessageHelper() throws IllegalAccessException {
+		throw new IllegalAccessException("不能创建MessageHelper类");
+	}
+
+
     public static Message objToMsg(Object obj) {
         if (null == obj) {
             return null;
@@ -26,9 +31,8 @@ public class MessageHelper {
         }
 
         String str = new String(message.getBody());
-        T obj = JsonUtil.strToObj(str, clazz);
 
-        return obj;
+        return JsonUtil.strToObj(str, clazz);
     }
 
 }

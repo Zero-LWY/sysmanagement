@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 
 /**
- * <p> @Description TODO </p>
+ * <p> 邮件消费者 </p>
  *
  * @author lian.weiyuan@hand-china.com
  * @version 1.0.0

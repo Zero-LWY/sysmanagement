@@ -4,7 +4,7 @@ import com.jluzh.sysmanagement.domain.entity.UserToRole;
 import org.apache.ibatis.annotations.Param;
 
 /**
- * <p> @Description TODO </p>
+ * <p>用户角色对应服务接口</p>
  *
  * @author lian.weiyuan@hand-china.com
  * @version 1.0.0

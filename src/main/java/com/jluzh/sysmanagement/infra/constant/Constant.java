@@ -2,7 +2,8 @@ package com.jluzh.sysmanagement.infra.constant;
 
 public class Constant {
 
-    public interface Redis {
+
+    public interface Redis { //redis设置
         String OK = "OK";
         Integer EXPIRE_TIME_MINUTE = 60;// 过期时间, 60s, 一分钟
         Integer EXPIRE_TIME_HOUR = 60 * 60;// 过期时间, 一小时

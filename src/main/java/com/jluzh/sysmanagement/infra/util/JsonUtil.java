@@ -13,6 +13,9 @@ import java.text.SimpleDateFormat;
 @Slf4j
 public class JsonUtil {
 
+	private JsonUtil() throws IllegalAccessException {
+		throw new IllegalAccessException("不能创建JsonUtil类");
+	}
     private static ObjectMapper objectMapper = new ObjectMapper();
     private static final String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
 

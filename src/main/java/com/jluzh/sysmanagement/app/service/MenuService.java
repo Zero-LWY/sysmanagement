@@ -3,7 +3,7 @@ package com.jluzh.sysmanagement.app.service;
 import com.jluzh.sysmanagement.domain.entity.Menu;
 
 /**
- * <p> @Description TODO </p>
+ * <p> 菜单服务接口</p>
  *
  * @author lian.weiyuan@hand-china.com
  * @version 1.0.0

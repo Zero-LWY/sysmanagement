@@ -4,7 +4,7 @@ import com.jluzh.sysmanagement.domain.entity.Mail;
 import org.springframework.http.ResponseEntity;
 
 /**
- * <p> @Description TODO </p>
+ * <p> email服务类 </p>
  *
  * @author lian.weiyuan@hand-china.com
  * @version 1.0.0

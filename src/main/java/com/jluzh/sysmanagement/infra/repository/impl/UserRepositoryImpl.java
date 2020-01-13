@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 /**
- * <p> @Description TODO </p>
+ * <p> 用户仓库实现类 </p>
  *
  * @author lian.weiyuan@hand-china.com
  * @version 1.0.0

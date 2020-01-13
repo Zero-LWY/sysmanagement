@@ -3,7 +3,7 @@ package com.jluzh.sysmanagement.domain.repository;
 import com.jluzh.sysmanagement.domain.entity.Role;
 
 /**
- * <p> @Description TODO </p>
+ * <p> 角色仓库接口 </p>
  *
  * @author lian.weiyuan@hand-china.com
  * @version 1.0.0

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 /**
- * <p> @Description TODO </p>
+ * <p> 部门服务类实现 </p>
  * @ClassName ${NAME}.java
  * @author lian.weiyuan@hand-china.com
  * @version 1.0.0

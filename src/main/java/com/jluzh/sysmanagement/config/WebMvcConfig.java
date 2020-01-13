@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
 /**
- * <p> @Description TODO </p>
+ * <p>web跨域配置</p>
  *
  * @author lian.weiyuan@hand-china.com
  * @version 1.0.0

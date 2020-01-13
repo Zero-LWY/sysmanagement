@@ -4,7 +4,7 @@ import com.jluzh.sysmanagement.domain.entity.RoleToMenu;
 import org.apache.ibatis.annotations.Param;
 
 /**
- * <p> @Description TODO </p>
+ * <p>角色菜单对应mapper </p>
  * @ClassName ${NAME}.java
  * @author lian.weiyuan@hand-china.com
  * @version 1.0.0

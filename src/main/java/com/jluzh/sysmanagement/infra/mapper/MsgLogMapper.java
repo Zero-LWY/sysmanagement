@@ -3,7 +3,7 @@ package com.jluzh.sysmanagement.infra.mapper;
 import com.jluzh.sysmanagement.domain.entity.MsgLog;
 
 /**
- * <p> @Description TODO </p>
+ * <p> 队列错误信息mapper</p>
  * @ClassName ${NAME}.java
  * @author lian.weiyuan@hand-china.com
  * @version 1.0.0

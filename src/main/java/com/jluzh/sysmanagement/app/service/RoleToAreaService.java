@@ -4,7 +4,7 @@ import com.jluzh.sysmanagement.domain.entity.RoleToArea;
 import org.apache.ibatis.annotations.Param;
 
 /**
- * <p> @Description TODO </p>
+ * <p> 角色区域对应服务接口 </p>
  *
  * @author lian.weiyuan@hand-china.com
  * @version 1.0.0

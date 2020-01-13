@@ -5,7 +5,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * <p> @Description TODO </p>
+ * <p> 用户接口</p>
  *
  * @author lian.weiyuan@hand-china.com
  * @version 1.0.0
@@ -25,7 +25,6 @@ public class UserController {
 	@GetMapping("/find/{id}")
 	public User findById(@PathVariable("id") int id) {
 
-		System.out.println(id);
 		return new User();
 	}
 	@ApiOperation("更新  用户接口")

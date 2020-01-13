@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * <p> @Description TODO </p>
+ * <p> email controller </p>
  *
  * @author lian.weiyuan@hand-china.com
  * @version 1.0.0

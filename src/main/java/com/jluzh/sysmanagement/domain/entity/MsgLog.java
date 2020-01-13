@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * <p> @Description TODO </p>
+ * <p> 队列错误信息 </p>
  * @ClassName ${NAME}.java
  * @author lian.weiyuan@hand-china.com
  * @version 1.0.0

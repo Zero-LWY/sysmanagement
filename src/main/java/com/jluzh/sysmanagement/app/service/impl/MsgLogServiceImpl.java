@@ -6,7 +6,7 @@ import com.jluzh.sysmanagement.domain.entity.MsgLog;
 import com.jluzh.sysmanagement.infra.mapper.MsgLogMapper;
 import com.jluzh.sysmanagement.app.service.MsgLogService;
 /**
- * <p> @Description TODO </p>
+ * <p>队列错误服务实现类</p>
  * @ClassName ${NAME}.java
  * @author lian.weiyuan@hand-china.com
  * @version 1.0.0

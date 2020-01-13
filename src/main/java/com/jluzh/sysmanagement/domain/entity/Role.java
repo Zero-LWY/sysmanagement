@@ -7,7 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * <p> 角色 </p>
@@ -43,7 +43,7 @@ public class Role implements Serializable {
      * 更新时间
      */
     @ApiModelProperty(name = "updateDate", value = "更新时间")
-    private Date updateDate;
+    private LocalDateTime updateDate;
 
     /**
      * 备注信息

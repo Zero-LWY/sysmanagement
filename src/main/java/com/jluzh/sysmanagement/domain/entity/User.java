@@ -32,19 +32,19 @@ public class User implements Serializable {
 	@ApiModelProperty(name = "loginName", value = "登录名")
 	private String loginName;
 	@ApiModelProperty(name = "password", value = "密码")
-	private String	password;
+	private String password;
 	@ApiModelProperty(name = "userNo", value = "用户number")
-	private String	userNo;
+	private String userNo;
 	@ApiModelProperty(name = "userName", value = "用户名称")
 	private String userName;
 	@ApiModelProperty(name = "email", value = "邮箱")
-	private String	email;
+	private String email;
 	@ApiModelProperty(name = "phone", value = "电话")
-	private String	phone;
+	private String phone;
 	@ApiModelProperty(name = "mobile", value = "移动电话")
-	private String	mobile;
+	private String mobile;
 	@ApiModelProperty(name = "updateBy", value = "更新人")
-	private String	updateBy;
+	private String updateBy;
 	@ApiModelProperty(name = "updateDate", value = "更新时间")
 	private Date updateDate;
 	@ApiModelProperty(name = "remarks", value = "评论")

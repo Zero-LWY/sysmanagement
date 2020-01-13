@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 
 /**
- * <p> @Description TODO </p>
+ * <p>队列错误仓库实现类</p>
  *
  * @author lian.weiyuan@hand-china.com
  * @version 1.0.0

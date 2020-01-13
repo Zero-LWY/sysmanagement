@@ -14,7 +14,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import java.util.Collections;
 
 /**
- * <p> @Description TODO </p>
+ * <p> swagger配置 </p>
  *
  * @author lian.weiyuan@hand-china.com
  * @version 1.0.0

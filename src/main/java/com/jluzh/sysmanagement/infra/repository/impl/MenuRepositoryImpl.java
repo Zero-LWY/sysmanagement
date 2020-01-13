@@ -5,7 +5,7 @@ import com.jluzh.sysmanagement.domain.repository.MenuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * <p> @Description TODO </p>
+ * <p>菜单仓库接口 </p>
  *
  * @author lian.weiyuan@hand-china.com
  * @version 1.0.0

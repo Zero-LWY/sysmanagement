@@ -16,7 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 /**
- * <p> @Description TODO </p>
+ * <p>email服务类实现</p>
  *
  * @author lian.weiyuan@hand-china.com
  * @version 1.0.0

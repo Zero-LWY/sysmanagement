@@ -12,6 +12,9 @@ import java.util.Date;
 @Slf4j
 public class JodaTimeUtil {
 
+	private JodaTimeUtil() throws IllegalAccessException {
+		throw new IllegalAccessException("不能创建JodaTimeUtil类");
+	}
 	private static final String STANDARD_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
 	/**
@@ -115,7 +118,7 @@ public class JodaTimeUtil {
 			dateTime = DateTime.parse(timeStr, format);
 		} catch (Exception e) {
 			log.error("isBeforeNow error: timeStr: {}", timeStr, e);
-			return null;
+			return false;
 		}
 		return dateTime.isBeforeNow();
 	}

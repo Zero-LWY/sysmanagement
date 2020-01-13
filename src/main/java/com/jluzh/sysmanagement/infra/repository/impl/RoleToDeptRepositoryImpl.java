@@ -6,7 +6,7 @@ import com.jluzh.sysmanagement.infra.mapper.RoleToDeptMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * <p> @Description TODO </p>
+ * <p>角色部门对应仓库实现类 </p>
  *
  * @author lian.weiyuan@hand-china.com
  * @version 1.0.0
