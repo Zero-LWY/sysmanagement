@@ -56,7 +56,8 @@ public class EmailConsumer {
 		boolean success = mailUtil.send(mail);
 		if (success) {
 			msgLogRepository.updateStatus(msgId, Constant.MsgLogStatus.CONSUMED_SUCCESS);
-			channel.basicAck(tag, false);// 消费确认
+			// 消费确认
+			channel.basicAck(tag, false);
 		} else {
 			channel.basicNack(tag, false, true);
 		}

@@ -32,14 +32,15 @@ public class MailSenderServiceImpl implements MailSenderService {
 
 	@Override
 	public ResponseEntity<String> send(Mail mail) {
-		String msgId = RandomUtil.UUID32();
+		String msgId = RandomUtil.uuid32();
 		mail.setMsgId(msgId);
 
 		MsgLog msgLog = new MsgLog(msgId,mail, RabbitConfig.MAIL_EXCHANGE_NAME,RabbitConfig.MAIL_ROUTING_KEY_NAME);
 		msgLogService.insertSelective(msgLog);
 
 		CorrelationData correlationData = new CorrelationData(msgId);
-		rabbitTemplate.convertAndSend(RabbitConfig.MAIL_EXCHANGE_NAME, RabbitConfig.MAIL_ROUTING_KEY_NAME, MessageHelper.objToMsg(mail), correlationData);// 发送消息
+		// 发送消息
+		rabbitTemplate.convertAndSend(RabbitConfig.MAIL_EXCHANGE_NAME, RabbitConfig.MAIL_ROUTING_KEY_NAME, MessageHelper.objToMsg(mail), correlationData);
 
 		return Results.success("邮件发送成功");
 	}

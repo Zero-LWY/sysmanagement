@@ -2,6 +2,8 @@ package com.jluzh.sysmanagement.api.controller.v1;
 
 import com.jluzh.sysmanagement.domain.entity.User;
 import io.swagger.annotations.ApiOperation;
+import org.apache.shiro.authz.annotation.Logical;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -22,6 +24,7 @@ public class UserController {
 	}
 
 	@ApiOperation("查找用户接口")
+	@RequiresPermissions(value = {"user:list", "user:info"}, logical = Logical.AND)
 	@GetMapping("/find/{id}")
 	public User findById(@PathVariable("id") int id) {
 

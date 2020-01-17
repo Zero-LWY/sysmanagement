@@ -5,32 +5,37 @@ import java.util.UUID;
 
 public class RandomUtil {
 
-    public static final String allChar = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	private RandomUtil() throws IllegalAccessException {
+		throw new IllegalAccessException("不能创建RandomUtil类");
+	}
 
-    public static final String letterChar = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	private static final Random random = new Random();
 
-    public static final String numberChar = "0123456789";
+    public static final String ALL_CHAR = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    public static String UUID32() {
+    public static final String LETTER_CHAR = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    public static final String NUMBER_CHAR = "0123456789";
+
+    public static String uuid32() {
         String str = UUID.randomUUID().toString();
-        return str.replaceAll("-", "");
+        return str.replace("-", "");
     }
 
-    public static String UUID36() {
+    public static String uuid36() {
         return UUID.randomUUID().toString();
     }
 
     /**
      * 生成包含大、小写字母、数字的字符串
      *
-     * @param length
+     * @param length 长度
      * @return 如: zsK8rCCi
      */
     public static String generateStr(int length) {
         StringBuffer sb = new StringBuffer();
-        Random random = new Random();
         for (int i = 0; i < length; i++) {
-            sb.append(allChar.charAt(random.nextInt(allChar.length())));
+            sb.append(ALL_CHAR.charAt(random.nextInt(ALL_CHAR.length())));
         }
         return sb.toString();
     }
@@ -38,14 +43,13 @@ public class RandomUtil {
     /**
      * 生成纯数字字符串
      *
-     * @param length
+     * @param length 长度
      * @return 如: 77914
      */
     public static String generateDigitalStr(int length) {
         StringBuffer sb = new StringBuffer();
-        Random random = new Random();
         for (int i = 0; i < length; i++) {
-            sb.append(numberChar.charAt(random.nextInt(numberChar.length())));
+            sb.append(NUMBER_CHAR.charAt(random.nextInt(NUMBER_CHAR.length())));
         }
         return sb.toString();
     }
@@ -53,14 +57,13 @@ public class RandomUtil {
     /**
      * 生成只包含大小写字母的字符串
      *
-     * @param length
+     * @param length 长度
      * @return 如: XetrWaYc
      */
     public static String generateLetterStr(int length) {
         StringBuffer sb = new StringBuffer();
-        Random random = new Random();
         for (int i = 0; i < length; i++) {
-            sb.append(letterChar.charAt(random.nextInt(letterChar.length())));
+            sb.append(LETTER_CHAR.charAt(random.nextInt(LETTER_CHAR.length())));
         }
         return sb.toString();
     }

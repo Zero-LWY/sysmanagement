@@ -19,7 +19,8 @@ public class MessageHelper {
         }
 
         Message message = MessageBuilder.withBody(JsonUtil.objToStr(obj).getBytes()).build();
-        message.getMessageProperties().setDeliveryMode(MessageDeliveryMode.PERSISTENT);// 消息持久化
+		// 消息持久化
+        message.getMessageProperties().setDeliveryMode(MessageDeliveryMode.PERSISTENT);
         message.getMessageProperties().setContentType(MessageProperties.CONTENT_TYPE_JSON);
 
         return message;

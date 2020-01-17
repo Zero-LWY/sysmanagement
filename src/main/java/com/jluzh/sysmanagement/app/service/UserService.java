@@ -14,4 +14,10 @@ import java.util.List;
  */
 public interface UserService {
 	List<User> selectUserList(User user);
+
+	User login(User user);
+
+	List<String> getAllPerms();
+
+	List<String> getUserPerms(Integer userId);
 }

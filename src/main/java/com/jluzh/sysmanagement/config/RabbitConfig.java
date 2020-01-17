@@ -60,7 +60,9 @@ public class RabbitConfig {
 		return new Jackson2JsonMessageConverter();
 	}
 
-	// 发送邮件
+	/**
+	 * 	发送邮件
+	 */
 	public static final String MAIL_QUEUE_NAME = "mail.queue";
 	public static final String MAIL_EXCHANGE_NAME = "mail.exchange";
 	public static final String MAIL_ROUTING_KEY_NAME = "mail.routing.key";
