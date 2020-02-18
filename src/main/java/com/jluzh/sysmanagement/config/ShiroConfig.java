@@ -54,7 +54,7 @@ public class ShiroConfig {
 		ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
 		shiroFilterFactoryBean.setSecurityManager(securityManager);
 		//登录,无权限是跳转的路径
-		shiroFilterFactoryBean.setLoginUrl("/login/do_login1");
+		shiroFilterFactoryBean.setLoginUrl("/login/do_login");
 		//登录成功后跳转的路径
 		shiroFilterFactoryBean.setSuccessUrl("/main");
 		//认证不通过跳转页面
@@ -83,7 +83,7 @@ public class ShiroConfig {
 	 * <p> 代理生成器，需要借助SpringAOP来扫描@RequiresRoles和@RequiresPermissions等注解。
 	 *     生成代理类实现功能增强，从而实现权限控制。
 	 *     需要配合AuthorizationAttributeSourceAdvisor一起使用，否则权限注解无效。 </p>
-	 * @param
+	 * @Param:
 	 * @return: org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator
 	 * @Author: lian.weiyuan@hand-china.com
 	 * @date: 2020/1/16 11:13

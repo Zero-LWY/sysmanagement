@@ -4,6 +4,7 @@ import com.jluzh.sysmanagement.domain.entity.UserToRole;
 import com.jluzh.sysmanagement.domain.repository.UserToRoleRepository;
 import com.jluzh.sysmanagement.infra.mapper.UserToRoleMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * <p> 用户角色对应仓库实现类</p>
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @ClassName UserToRoleRepositoryImpl.java
  * @createTime 2019年11月26日 16:58:00
  */
+@Component
 public class UserToRoleRepositoryImpl implements UserToRoleRepository {
 	@Autowired
 	private UserToRoleMapper userToRoleMapper;

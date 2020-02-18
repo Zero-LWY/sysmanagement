@@ -4,6 +4,7 @@ import com.jluzh.sysmanagement.domain.entity.Dict;
 import com.jluzh.sysmanagement.domain.repository.DictRepository;
 import com.jluzh.sysmanagement.infra.mapper.DictMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * <p> 字典仓库实现类</p>
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @ClassName DictRepositoryImpl.java
  * @createTime 2019年11月26日 16:56:00
  */
+@Component
 public class DictRepositoryImpl implements DictRepository {
 	@Autowired
 	private DictMapper dictMapper;

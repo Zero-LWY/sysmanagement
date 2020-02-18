@@ -4,6 +4,7 @@ import com.jluzh.sysmanagement.domain.entity.Role;
 import com.jluzh.sysmanagement.domain.repository.RoleRepository;
 import com.jluzh.sysmanagement.infra.mapper.RoleMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * <p> 角色仓库实现类 </p>
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @ClassName RoleRepositoryImpl.java
  * @createTime 2019年11月26日 16:57:00
  */
+@Component
 public class RoleRepositoryImpl implements RoleRepository {
 	@Autowired
 	private RoleMapper roleMapper;

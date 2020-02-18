@@ -4,6 +4,7 @@ import com.jluzh.sysmanagement.domain.entity.User;
 import com.jluzh.sysmanagement.domain.repository.UserRepository;
 import com.jluzh.sysmanagement.infra.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ import java.util.List;
  * @ClassName UserRepositoryImpl.java
  * @createTime 2019年11月26日 16:58:00
  */
+@Component
 public class UserRepositoryImpl implements UserRepository {
 	@Autowired
 	private UserMapper usermapper;
@@ -22,5 +24,10 @@ public class UserRepositoryImpl implements UserRepository {
 	@Override
 	public List<User> selectUserList(User user) {
 		return usermapper.selectUserList(user);
+	}
+
+	@Override
+	public User login(User user) {
+		return usermapper.login(user);
 	}
 }

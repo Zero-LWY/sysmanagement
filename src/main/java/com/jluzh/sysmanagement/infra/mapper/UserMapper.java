@@ -16,4 +16,6 @@ public interface UserMapper {
 
 	 List<User> selectUserList(User user);
 
+	 User login(User user);
+
 }

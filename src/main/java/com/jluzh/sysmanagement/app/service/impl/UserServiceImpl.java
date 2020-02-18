@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
 		token.setRememberMe(true);
 		Subject subject = SecurityUtils.getSubject();
 		subject.login(token);
-		return  new User();
+		return (User) subject.getPrincipal();
 	}
 	/**
 	 * 获取所有权限

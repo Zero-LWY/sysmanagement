@@ -4,6 +4,7 @@ import com.jluzh.sysmanagement.domain.entity.RoleToMenu;
 import com.jluzh.sysmanagement.domain.repository.RoleToMenuRepository;
 import com.jluzh.sysmanagement.infra.mapper.RoleToMenuMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * <p> 角色菜单对应仓库实现类 </p>
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @ClassName RoleToMenuRepositoryImpl.java
  * @createTime 2019年11月26日 16:58:00
  */
+@Component
 public class RoleToMenuRepositoryImpl implements RoleToMenuRepository {
 	@Autowired
 	private RoleToMenuMapper roleToMenuMapper;

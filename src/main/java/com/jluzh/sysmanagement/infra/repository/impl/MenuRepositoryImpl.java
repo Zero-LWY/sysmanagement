@@ -3,6 +3,7 @@ package com.jluzh.sysmanagement.infra.repository.impl;
 import com.jluzh.sysmanagement.domain.entity.Menu;
 import com.jluzh.sysmanagement.domain.repository.MenuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * <p>菜单仓库接口 </p>
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @ClassName MenuRepositoryImpl.java
  * @createTime 2019年11月26日 16:57:00
  */
+@Component
 public class MenuRepositoryImpl implements MenuRepository {
 	@Autowired
 	private MenuRepository menuRepository;

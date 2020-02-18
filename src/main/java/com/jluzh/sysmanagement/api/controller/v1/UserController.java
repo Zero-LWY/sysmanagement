@@ -27,8 +27,9 @@ public class UserController {
 	@RequiresPermissions(value = {"user:list", "user:info"}, logical = Logical.AND)
 	@GetMapping("/find/{id}")
 	public User findById(@PathVariable("id") int id) {
-
-		return new User();
+		User user = new User();
+		user.setUserName("hello");
+		return user;
 	}
 	@ApiOperation("更新  用户接口")
 	@PutMapping("/update")

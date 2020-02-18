@@ -4,6 +4,7 @@ import com.jluzh.sysmanagement.domain.entity.RoleToDept;
 import com.jluzh.sysmanagement.domain.repository.RoleToDeptRepository;
 import com.jluzh.sysmanagement.infra.mapper.RoleToDeptMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * <p>角色部门对应仓库实现类 </p>
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @ClassName RoleToDeptRepositoryImpl.java
  * @createTime 2019年11月26日 16:57:00
  */
+@Component
 public class RoleToDeptRepositoryImpl implements RoleToDeptRepository {
 	@Autowired
 	private RoleToDeptMapper roleToDeptMapper;

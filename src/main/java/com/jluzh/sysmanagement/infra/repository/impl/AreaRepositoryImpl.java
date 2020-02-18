@@ -4,6 +4,7 @@ import com.jluzh.sysmanagement.domain.entity.Area;
 import com.jluzh.sysmanagement.domain.repository.AreaRepository;
 import com.jluzh.sysmanagement.infra.mapper.AreaMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * <p> 区域仓库实现类 </p>
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @ClassName AreaRepositoryImpl.java
  * @createTime 2019年11月26日 16:56:00
  */
+@Component
 public class AreaRepositoryImpl implements AreaRepository {
 
 	@Autowired

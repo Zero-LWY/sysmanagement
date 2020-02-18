@@ -14,4 +14,6 @@ import java.util.List;
  */
 public interface UserRepository {
 	List<User> selectUserList(User user);
+
+	User login(User user);
 }

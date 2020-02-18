@@ -4,6 +4,7 @@ import com.jluzh.sysmanagement.domain.entity.Dept;
 import com.jluzh.sysmanagement.domain.repository.DeptRepository;
 import com.jluzh.sysmanagement.infra.mapper.DeptMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * <p> 部门仓库实现类 </p>
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @ClassName DeptRepositoryImpl.java
  * @createTime 2019年11月26日 16:56:00
  */
+@Component
 public class DeptRepositoryImpl implements DeptRepository {
 
 	@Autowired

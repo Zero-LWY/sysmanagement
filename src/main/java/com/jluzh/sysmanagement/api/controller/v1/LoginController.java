@@ -10,7 +10,6 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,13 +35,10 @@ public class LoginController {
 	 *
 	 * @return
 	 */
-	@GetMapping("do_login")
-	public ResponseEntity<String> doLogin(User user) {
-		user.setPassword("12312300");
-		user.setUserName("456465");
+	@PostMapping("do_login")
+	public ResponseEntity<User> doLogin(User user) {
 		log.debug("---------- username = " + user.getUserName() + ", " + "password = " + user.getPassword() + " ----------");
-		userService.login(user);
-		return Results.success("登录成功");
+		return Results.success(userService.login(user));
 	}
 
 	@PostMapping("do_logout")
