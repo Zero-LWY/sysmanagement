@@ -38,9 +38,14 @@ public class LoginController {
 	@PostMapping("do_login")
 	public ResponseEntity<User> doLogin(User user) {
 		log.info("---------- username = " + user.getUserName() + ", " + "password = " + user.getPassword() + " ----------");
-		log.debug("hello");
 		return Results.success(userService.login(user));
 	}
+
+	@PostMapping("/reset")
+	public ResponseEntity<String> resetPassword(User user,String code){
+		return Results.success(userService.resetPassword(user,code));
+	}
+
 
 	@PostMapping("do_logout")
 	public ResponseEntity<String> doLogout() {

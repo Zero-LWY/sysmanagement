@@ -68,4 +68,10 @@ public class UserServiceImpl implements UserService {
 		return list;
 	}
 
+	@Override
+	public String resetPassword(User user, String code) {
+
+
+		return "修改成功";
+	}
 }

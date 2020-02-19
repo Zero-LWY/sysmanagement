@@ -17,6 +17,8 @@ public interface UserService {
 
 	User login(User user);
 
+	String resetPassword(User user,String code);
+
 	List<String> getAllPerms();
 
 	List<String> getUserPerms(Integer userId);
