@@ -37,7 +37,8 @@ public class LoginController {
 	 */
 	@PostMapping("do_login")
 	public ResponseEntity<User> doLogin(User user) {
-		log.debug("---------- username = " + user.getUserName() + ", " + "password = " + user.getPassword() + " ----------");
+		log.info("---------- username = " + user.getUserName() + ", " + "password = " + user.getPassword() + " ----------");
+		log.debug("hello");
 		return Results.success(userService.login(user));
 	}
 

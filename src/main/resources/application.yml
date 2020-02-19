@@ -72,7 +72,11 @@ mybatis:
   configuration:
     #开启驼峰命名
     map-underscore-to-camel-case: true
-
+logging:
+  level:
+    org.apache.ibatis: ${LOGGING_LEVEL:debug}
+  file:
+    name: syslog
 management:
   endpoints:
     web:
@@ -81,3 +85,4 @@ management:
   metrics:
     tags:
       application: ${spring.application.name}
+
