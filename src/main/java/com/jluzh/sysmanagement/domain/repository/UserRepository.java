@@ -16,4 +16,6 @@ public interface UserRepository {
 	List<User> selectUserList(User user);
 
 	User login(User user);
+
+	User selectByMail(String mail);
 }

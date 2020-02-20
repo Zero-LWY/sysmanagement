@@ -3,6 +3,8 @@ package com.jluzh.sysmanagement.app.service.impl;
 import com.jluzh.sysmanagement.app.service.UserService;
 import com.jluzh.sysmanagement.domain.entity.User;
 import com.jluzh.sysmanagement.infra.mapper.UserMapper;
+import com.jluzh.sysmanagement.infra.util.JedisUtil;
+import lombok.RequiredArgsConstructor;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
@@ -21,10 +23,12 @@ import java.util.List;
  * @createTime 2019年11月25日 19:02:00
  */
 @Service
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class UserServiceImpl implements UserService {
 
-	@Autowired
-	private UserMapper userMapper;
+
+	private final UserMapper userMapper;
+	private final JedisUtil jedisUtil;
 
 	@Override
 	public List<User> selectUserList(User user) {
@@ -69,9 +73,17 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public String resetPassword(User user, String code) {
-
-
-		return "修改成功";
+	public String resetPassword(User newUser, String code) {
+		String mail = newUser.getEmail();
+		User user = userMapper.selectByMail(mail);
+		if(user == null){
+			return "修改失败";
+		}
+		user.setPassword(newUser.getPassword());
+		if(jedisUtil.exists(mail) && jedisUtil.get(mail,String.class).equals(code)){
+			//todo update
+			return "修改成功";
+		}
+		return "验证码错误";
 	}
 }

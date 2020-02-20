@@ -30,4 +30,9 @@ public class UserRepositoryImpl implements UserRepository {
 	public User login(User user) {
 		return usermapper.login(user);
 	}
+
+	@Override
+	public User selectByMail(String mail) {
+		return usermapper.selectByMail(mail);
+	}
 }
