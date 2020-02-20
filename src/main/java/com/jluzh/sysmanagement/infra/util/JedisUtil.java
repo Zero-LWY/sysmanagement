@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
+
 /**
  * <p> redis操作工具类 </p>
  *
@@ -20,6 +21,7 @@ import redis.clients.jedis.JedisPool;
 @Slf4j
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class JedisUtil {
+
 
 	private final JedisPool jedisPool;
 

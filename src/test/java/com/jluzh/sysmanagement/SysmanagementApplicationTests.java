@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.redis.core.RedisTemplate;
 
 @SpringBootTest
 @MapperScan("com.jluzh.sysmanagement.infra.mapper")
@@ -14,11 +13,11 @@ import org.springframework.data.redis.core.RedisTemplate;
 class SysmanagementApplicationTests {
 	@Autowired
 	private WinvStockLogMapper winvStockLogMapper;
-	private final RedisTemplate redisTemplate;
+
 
 	@Test
 	void contextLoads() {
-		redisTemplate.opsForValue().set("hello","1");
+
 	}
 
 }

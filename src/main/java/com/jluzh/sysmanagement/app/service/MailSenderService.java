@@ -1,6 +1,5 @@
 package com.jluzh.sysmanagement.app.service;
 
-import com.jluzh.sysmanagement.domain.entity.Mail;
 import org.springframework.http.ResponseEntity;
 
 /**
@@ -13,5 +12,5 @@ import org.springframework.http.ResponseEntity;
  */
 public interface MailSenderService {
 
-	ResponseEntity<String> send(Mail mail);
+	ResponseEntity<String> resetPasswordSend(String mailAddress);
 }

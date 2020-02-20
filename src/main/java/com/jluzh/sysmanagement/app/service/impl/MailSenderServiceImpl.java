@@ -6,6 +6,7 @@ import com.jluzh.sysmanagement.config.RabbitConfig;
 import com.jluzh.sysmanagement.domain.entity.Mail;
 import com.jluzh.sysmanagement.domain.entity.MsgLog;
 import com.jluzh.sysmanagement.infra.mq.MessageHelper;
+import com.jluzh.sysmanagement.infra.util.JedisUtil;
 import com.jluzh.sysmanagement.infra.util.RandomUtil;
 import com.jluzh.sysmanagement.infra.util.Results;
 import lombok.RequiredArgsConstructor;
@@ -29,11 +30,18 @@ public class MailSenderServiceImpl implements MailSenderService {
 
 	private final MsgLogService msgLogService;
 	private final RabbitTemplate rabbitTemplate;
+	@Autowired
+	private  JedisUtil jedisUtil;
 
 	@Override
-	public ResponseEntity<String> send(Mail mail) {
+	public ResponseEntity<String> resetPasswordSend(String mailAddress) {
 		String msgId = RandomUtil.uuid32();
+		Mail mail = new Mail();
 		mail.setMsgId(msgId);
+		mail.setTo(mailAddress);
+		mail.setTitle("密码重置");
+		String content = RandomUtil.generateDigitalStr(6);
+		mail.setContent("密码重置验证码:"+content);
 
 		MsgLog msgLog = new MsgLog(msgId,mail, RabbitConfig.MAIL_EXCHANGE_NAME,RabbitConfig.MAIL_ROUTING_KEY_NAME);
 		msgLogService.insertSelective(msgLog);
@@ -41,7 +49,7 @@ public class MailSenderServiceImpl implements MailSenderService {
 		CorrelationData correlationData = new CorrelationData(msgId);
 		// 发送消息
 		rabbitTemplate.convertAndSend(RabbitConfig.MAIL_EXCHANGE_NAME, RabbitConfig.MAIL_ROUTING_KEY_NAME, MessageHelper.objToMsg(mail), correlationData);
-
+		jedisUtil.set(mailAddress,content,120);
 		return Results.success("邮件发送成功");
 	}
 }

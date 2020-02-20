@@ -1,13 +1,10 @@
 package com.jluzh.sysmanagement.api.controller.v1;
 
 import com.jluzh.sysmanagement.app.service.MailSenderService;
-import com.jluzh.sysmanagement.domain.entity.Mail;
-import com.jluzh.sysmanagement.infra.util.Results;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,12 +27,8 @@ public class EmailController {
 
 	@PostMapping("send")
 	@ApiOperation("发送邮件接口")
-	public ResponseEntity<String> sendMail(@Validated Mail mail, Errors errors) {
-		if (errors.hasErrors()) {
-			String msg = errors.getFieldError().getDefaultMessage();
-			return Results.error(msg);
-		}
-		return mailSenderService.send(mail);
+	public ResponseEntity<String> sendMail(@Validated String mailAddress) {
+		return mailSenderService.resetPasswordSend(mailAddress);
 	}
 
 }
