@@ -1,5 +1,6 @@
 package com.jluzh.sysmanagement.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
@@ -7,7 +8,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * <p> 用户实体 </p>
@@ -46,7 +47,8 @@ public class User implements Serializable {
 	@ApiModelProperty(name = "updateBy", value = "更新人")
 	private String updateBy;
 	@ApiModelProperty(name = "updateDate", value = "更新时间")
-	private Date updateDate;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	private LocalDateTime updateTime;
 	@ApiModelProperty(name = "remarks", value = "评论")
 	private String remarks;
 

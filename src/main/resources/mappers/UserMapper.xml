@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jluzh.sysmanagement.infra.mapper.UserMapper">
     <sql id = "all_user_columns">
-            USER_ID,DEPT_ID,LOGIN_NAME,PASSWORD,
+            USER_ID,DEPT_ID,LOGIN_NAME,`PASSWORD`,
             USER_NO,USER_NAME,EMAIL,PHONE,MOBILE,
             UPDATE_BY,UPDATE_DATE,REMARKS
     </sql>
@@ -30,5 +30,47 @@
         from sysmanagement.pm_sys_user
         where email = #{mail,jdbcType=VARCHAR}
     </select>
+    <update id="updateSelective">
+        update pm_sys_user
+        <set>
+            <if test="deptId != null">
+                dept_id = #{deptId,jdbcType=BIGINT},
+            </if>
+            <if test="loginName != null">
+                login_name = #{loginName,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                update_date = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="remarks != null">
+                `remarks` = #{remarks,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                password = #{password,jdbcType=VARCHAR} ,
+            </if>
+            <if test="userNo != null and userNo != ''">
+                user_no = #{userNo,jdbcType=VARCHAR} ,
+            </if>
+            <if test="userName != null and userName != ''">
+                user_name = #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null and email != ''">
+                email = #{email,jdbcType=VARCHAR} ,
+            </if>
+            <if test="phone != null and phone != ''">
+                phone = #{phone,jdbcType=VARCHAR} ,
+            </if>
+            <if test="mobile != null and mobile != ''">
+                mobile = #{mobile,jdbcType=VARCHAR} ,
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                update_by = #{updateBy,jdbcType=VARCHAR} ,
+            </if>
+            <if test="deptId != null">
+                dept_id = #{deptId,jdbcType=BIGINT} ,
+            </if>
+        </set>
+        where user_id = #{userId,jdbcType=BIGINT}
+    </update>
 
 </mapper>

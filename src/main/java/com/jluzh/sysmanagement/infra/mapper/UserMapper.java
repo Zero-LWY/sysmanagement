@@ -20,4 +20,6 @@ public interface UserMapper {
 
 	 User selectByMail(String mail);
 
+	 Integer updateSelective(User user);
+
 }

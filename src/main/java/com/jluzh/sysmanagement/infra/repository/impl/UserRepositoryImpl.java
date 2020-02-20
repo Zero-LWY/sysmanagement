@@ -35,4 +35,9 @@ public class UserRepositoryImpl implements UserRepository {
 	public User selectByMail(String mail) {
 		return usermapper.selectByMail(mail);
 	}
+
+	@Override
+	public Integer updateSelective(User user) {
+		return usermapper.updateSelective(user);
+	}
 }

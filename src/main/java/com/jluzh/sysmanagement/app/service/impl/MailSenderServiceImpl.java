@@ -41,7 +41,7 @@ public class MailSenderServiceImpl implements MailSenderService {
 		mail.setTo(mailAddress);
 		mail.setTitle("密码重置");
 		String content = RandomUtil.generateDigitalStr(6);
-		mail.setContent("密码重置验证码:"+content);
+		mail.setContent("密码重置验证码:"+content+",15分钟内输入有效.");
 
 		MsgLog msgLog = new MsgLog(msgId,mail, RabbitConfig.MAIL_EXCHANGE_NAME,RabbitConfig.MAIL_ROUTING_KEY_NAME);
 		msgLogService.insertSelective(msgLog);
@@ -49,7 +49,7 @@ public class MailSenderServiceImpl implements MailSenderService {
 		CorrelationData correlationData = new CorrelationData(msgId);
 		// 发送消息
 		rabbitTemplate.convertAndSend(RabbitConfig.MAIL_EXCHANGE_NAME, RabbitConfig.MAIL_ROUTING_KEY_NAME, MessageHelper.objToMsg(mail), correlationData);
-		jedisUtil.set(mailAddress,content,120);
+		jedisUtil.set(mailAddress,content,60*15);
 		return Results.success("邮件发送成功");
 	}
 }

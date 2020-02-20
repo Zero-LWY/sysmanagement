@@ -72,9 +72,11 @@ mybatis:
   configuration:
     #开启驼峰命名
     map-underscore-to-camel-case: true
+    log-impl:  org.apache.ibatis.logging.stdout.StdOutImpl
 logging:
   level:
     org.apache.ibatis: ${LOGGING_LEVEL:debug}
+    org.mybatis: ${LOGGING_LEVEL:debug}
   file:
     name: syslog
 management:

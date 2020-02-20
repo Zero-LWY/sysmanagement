@@ -73,7 +73,8 @@ public class ShiroConfig {
 		Map<String,String> filterChainMap = new LinkedHashMap<>();
 		//首页配置放行
 		filterChainMap.put("/","anon");
-		filterChainMap.put("/login/do_login","anon");
+		filterChainMap.put("/login/**","anon");
+		filterChainMap.put("/email/send","anon");
 		filterChainMap.put("/**","authc");
 		shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainMap);
 		return shiroFilterFactoryBean;

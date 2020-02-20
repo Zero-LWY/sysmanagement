@@ -18,4 +18,6 @@ public interface UserRepository {
 	User login(User user);
 
 	User selectByMail(String mail);
+
+	Integer updateSelective(User user);
 }

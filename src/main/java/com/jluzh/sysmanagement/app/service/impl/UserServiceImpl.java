@@ -11,6 +11,7 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,7 +82,9 @@ public class UserServiceImpl implements UserService {
 		}
 		user.setPassword(newUser.getPassword());
 		if(jedisUtil.exists(mail) && jedisUtil.get(mail,String.class).equals(code)){
-			//todo update
+			user.setUpdateTime(LocalDateTime.now());
+			userMapper.updateSelective(user);
+			jedisUtil.del(mail);
 			return "修改成功";
 		}
 		return "验证码错误";

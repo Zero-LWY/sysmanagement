@@ -141,6 +141,18 @@ public class JedisUtil {
 		}
 	}
 
+	public boolean del(String key){
+		Jedis jedis = null;
+		try {
+			jedis = jedisPool.getResource();
+			return jedis.del(key.getBytes()) > 0 ;
+		}catch(Exception e){
+			log.error("ttl key:{}  error",key);
+			return false;
+		}finally{
+			returnToPool(jedis);
+		}
+	}
 
 
 	/**
