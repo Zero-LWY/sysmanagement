@@ -69,7 +69,7 @@ public class UserAuthorizingRealm extends AuthorizingRealm {
 
 		User loginUser = new User();
 		loginUser.setPassword(String.copyValueOf(token.getPassword()));
-		loginUser.setUserName(token.getUsername());
+		loginUser.setLoginName(token.getUsername());
 		User user = userRepository.login(loginUser);
 		if(user == null){
 			throw new UnknownAccountException("账号或密码不正确");

@@ -6,6 +6,9 @@ import com.jluzh.sysmanagement.domain.repository.AreaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+
 /**
  * <p> 区域service实现类 </p>
  * @ClassName ${NAME}.java
@@ -20,9 +23,13 @@ public class AreaServiceImpl implements AreaService {
     @Autowired
     private final AreaRepository areaRepository;
 
-    
     @Override
-    public int deleteByPrimaryKey(Integer id) {
+    public List<Area> list(Area area) {
+        return areaRepository.selectList(area);
+    }
+
+    @Override
+    public int deleteByPrimaryKey(Long id) {
         return areaRepository.deleteByPrimaryKey(id);
     }
 
@@ -40,7 +47,7 @@ public class AreaServiceImpl implements AreaService {
 
     
     @Override
-    public Area selectByPrimaryKey(Integer id) {
+    public Area selectByPrimaryKey(Long id) {
         return areaRepository.selectByPrimaryKey(id);
     }
 

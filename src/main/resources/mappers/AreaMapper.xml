@@ -152,7 +152,7 @@
             and del_flag =#{delFlag,jdbcType=VARCHAR}
         </if>
          <if test="parentId != null">
-             and parent_id = #{parentId,jdbcType=INTEGER} 
+             and parent_id = #{parentId,jdbcType=INTEGER}
          </if>
         <if test="name != null and name != ''">
             and `name` =#{name,jdbcType=VARCHAR}

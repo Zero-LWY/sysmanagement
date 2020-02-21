@@ -66,7 +66,7 @@
         <include refid="all_user_columns"/>
         from sysmanagement.pm_sys_user
         where 1=1
-        and user_name = #{userName,jdbcType=VARCHAR}
+        and login_name = #{loginName,jdbcType=VARCHAR}
         and password = #{password,jdbcType=VARCHAR}
     </select>
     <select id="selectByMail" resultType="com.jluzh.sysmanagement.domain.entity.User">

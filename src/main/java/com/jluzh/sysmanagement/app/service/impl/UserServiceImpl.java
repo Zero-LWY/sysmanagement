@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User login(User user) {
-		UsernamePasswordToken token = new UsernamePasswordToken(user.getUserName(), user.getPassword());
+		UsernamePasswordToken token = new UsernamePasswordToken(user.getLoginName(), user.getPassword());
 		token.setRememberMe(true);
 		Subject subject = SecurityUtils.getSubject();
 		subject.login(token);

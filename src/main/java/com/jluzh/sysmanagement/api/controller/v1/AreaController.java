@@ -7,8 +7,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,47 +31,43 @@ public class AreaController {
 
 	@ApiOperation("分页获取区域列表")
 	@GetMapping
-	public ResponseEntity<Page<Area>> list(final Area area,
-								  final PageRequest pageRequest) {
+	public ResponseEntity<List<Area>> list(final Area area//final PageRequest pageRequest
+								  ) {
 		//final Page<Area> list = areaService.pageList(pageRequest, area);
-
-		return Results.success();
+		return Results.success(areaService.list(area));
 	}
 
 	@ApiOperation("根据ID获取区域详细信息")
 	@GetMapping("/{areaId}")
-	public ResponseEntity<?> detail(@PathVariable final long areaId) {
-		final Area area = new Area();
-		area.setId(areaId);
-		//todo
-		return Results.success();
+	public ResponseEntity<Area> detail(@PathVariable final Long areaId) {
+		return Results.success(areaService.selectByPrimaryKey(areaId));
 	}
 
 	@ApiOperation("新增区域")
 	@PostMapping
-	public ResponseEntity<?> create(@RequestBody final Area area) {
+	public ResponseEntity<Area> create(@RequestBody final Area area) {
 		//this.validObject(o2CustomerAddress);
-		//todo
-		return Results.success();
+		areaService.insertSelective(area);
+		return Results.success(area);
 	}
 
 	@ApiOperation("更新区域")
 	@PutMapping
-	public ResponseEntity<?> update(@RequestBody final  Area area) {
-		//todo
+	public ResponseEntity<Area> update(@RequestBody final  Area area) {
+		areaService.updateByPrimaryKeySelective(area);
 		//SecurityTokenHelper.validToken(o2CustomerAddress);
 		//this.validObject(o2CustomerAddress);
 		//O2CustomerAddress customerAddress = o2CustomerAddressService.convert(o2CustomerAddress);
-		return Results.success();
+		return Results.success(area);
 	}
 
 	@ApiOperation("删除区域")
 	@DeleteMapping
 	public ResponseEntity<?> remove(@RequestBody final  Area area) {
-		//todo
+		areaService.deleteByPrimaryKey(area.getId());
 		//SecurityTokenHelper.validToken(o2CustomerAddress);
 		//o2CustomerAddressRepository.deleteByPrimaryKey(o2CustomerAddress);
-		return Results.success();
+		return Results.success("删除成功");
 	}
 
 	@ApiOperation("批量删除区域")

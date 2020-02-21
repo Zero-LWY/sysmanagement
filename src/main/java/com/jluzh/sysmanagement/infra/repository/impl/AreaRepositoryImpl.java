@@ -6,6 +6,8 @@ import com.jluzh.sysmanagement.infra.mapper.AreaMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
  * <p> 区域仓库实现类 </p>
  *
@@ -21,7 +23,12 @@ public class AreaRepositoryImpl implements AreaRepository {
 	private AreaMapper areaMapper;
 
 	@Override
-	public int deleteByPrimaryKey(Integer id) {
+	public List<Area> selectList(Area area) {
+		return areaMapper.selectList(area);
+	}
+
+	@Override
+	public int deleteByPrimaryKey(Long id) {
 		return areaMapper.deleteByPrimaryKey(id);
 	}
 
@@ -36,7 +43,7 @@ public class AreaRepositoryImpl implements AreaRepository {
 	}
 
 	@Override
-	public Area selectByPrimaryKey(Integer id) {
+	public Area selectByPrimaryKey(Long id) {
 		return areaMapper.selectByPrimaryKey(id);
 	}
 
