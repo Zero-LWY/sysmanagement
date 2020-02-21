@@ -2,6 +2,8 @@ package com.jluzh.sysmanagement.infra.mapper;
 
 import com.jluzh.sysmanagement.domain.entity.Dict;
 
+import java.util.List;
+
 /**
  * <p> 字典mapper</p>
  * @ClassName ${NAME}.java
@@ -10,6 +12,8 @@ import com.jluzh.sysmanagement.domain.entity.Dict;
  * @createTime 2019年11月26日 15:51:00
  */
 public interface DictMapper {
+    List<Dict> selectList(Dict dict);
+
     int deleteByPrimaryKey(Integer id);
 
     int insert(Dict record);

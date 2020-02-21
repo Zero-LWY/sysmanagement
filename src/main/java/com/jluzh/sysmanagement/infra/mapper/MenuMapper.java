@@ -2,6 +2,8 @@ package com.jluzh.sysmanagement.infra.mapper;
 
 import com.jluzh.sysmanagement.domain.entity.Menu;
 
+import java.util.List;
+
 /**
  * <p> 菜单mapper</p>
  * @ClassName ${NAME}.java
@@ -10,6 +12,8 @@ import com.jluzh.sysmanagement.domain.entity.Menu;
  * @createTime 2019年11月26日 15:51:00
  */
 public interface MenuMapper {
+    List<Menu> selectList(Menu menu);
+
     int deleteByPrimaryKey(Integer id);
 
     int insert(Menu record);

@@ -1,106 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jluzh.sysmanagement.infra.mapper.RoleMapper">
-  <resultMap id="BaseResultMap" type="com.jluzh.sysmanagement.domain.entity.Role">
-    <!--@mbg.generated-->
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
-    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
-    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
-    <result column="del_flag" jdbcType="CHAR" property="delFlag" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    <!--@mbg.generated-->
-    id, `name`, update_by, update_date, remarks, del_flag
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    <!--@mbg.generated-->
-    select 
-    <include refid="Base_Column_List" />
-    from pm_sys_role
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    <!--@mbg.generated-->
-    delete from pm_sys_role
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.jluzh.sysmanagement.domain.entity.Role" useGeneratedKeys="true">
-    <!--@mbg.generated-->
-    insert into pm_sys_role (`name`, update_by, update_date, 
-      remarks, del_flag)
-    values (#{name,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, 
-      #{remarks,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR})
-  </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.jluzh.sysmanagement.domain.entity.Role" useGeneratedKeys="true">
-    <!--@mbg.generated-->
-    insert into pm_sys_role
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="name != null">
-        `name`,
-      </if>
-      <if test="updateBy != null">
-        update_by,
-      </if>
-      <if test="updateDate != null">
-        update_date,
-      </if>
-      <if test="remarks != null">
-        remarks,
-      </if>
-      <if test="delFlag != null">
-        del_flag,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="updateBy != null">
-        #{updateBy,jdbcType=VARCHAR},
-      </if>
-      <if test="updateDate != null">
-        #{updateDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="remarks != null">
-        #{remarks,jdbcType=VARCHAR},
-      </if>
-      <if test="delFlag != null">
-        #{delFlag,jdbcType=CHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.jluzh.sysmanagement.domain.entity.Role">
-    <!--@mbg.generated-->
-    update pm_sys_role
-    <set>
-      <if test="name != null">
-        `name` = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="updateBy != null">
+    <resultMap id="BaseResultMap" type="com.jluzh.sysmanagement.domain.entity.Role">
+        <!--@mbg.generated-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="update_by" jdbcType="VARCHAR" property="updateBy"/>
+        <result column="update_date" jdbcType="TIMESTAMP" property="updateDate"/>
+        <result column="remarks" jdbcType="VARCHAR" property="remarks"/>
+        <result column="del_flag" jdbcType="CHAR" property="delFlag"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, `name`, update_by, update_date, remarks, del_flag
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from pm_sys_role
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        <!--@mbg.generated-->
+        delete from pm_sys_role
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.jluzh.sysmanagement.domain.entity.Role"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into pm_sys_role (`name`, update_by, update_date,
+        remarks, del_flag)
+        values (#{name,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP},
+        #{remarks,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id"
+            parameterType="com.jluzh.sysmanagement.domain.entity.Role" useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into pm_sys_role
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null">
+                `name`,
+            </if>
+            <if test="updateBy != null">
+                update_by,
+            </if>
+            <if test="updateDate != null">
+                update_date,
+            </if>
+            <if test="remarks != null">
+                remarks,
+            </if>
+            <if test="delFlag != null">
+                del_flag,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="updateBy != null">
+                #{updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateDate != null">
+                #{updateDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="remarks != null">
+                #{remarks,jdbcType=VARCHAR},
+            </if>
+            <if test="delFlag != null">
+                #{delFlag,jdbcType=CHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.jluzh.sysmanagement.domain.entity.Role">
+        <!--@mbg.generated-->
+        update pm_sys_role
+        <set>
+            <if test="name != null">
+                `name` = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="updateBy != null">
+                update_by = #{updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateDate != null">
+                update_date = #{updateDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="remarks != null">
+                remarks = #{remarks,jdbcType=VARCHAR},
+            </if>
+            <if test="delFlag != null">
+                del_flag = #{delFlag,jdbcType=CHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.jluzh.sysmanagement.domain.entity.Role">
+        <!--@mbg.generated-->
+        update pm_sys_role
+        set `name` = #{name,jdbcType=VARCHAR},
         update_by = #{updateBy,jdbcType=VARCHAR},
-      </if>
-      <if test="updateDate != null">
         update_date = #{updateDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="remarks != null">
         remarks = #{remarks,jdbcType=VARCHAR},
-      </if>
-      <if test="delFlag != null">
-        del_flag = #{delFlag,jdbcType=CHAR},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.jluzh.sysmanagement.domain.entity.Role">
-    <!--@mbg.generated-->
-    update pm_sys_role
-    set `name` = #{name,jdbcType=VARCHAR},
-      update_by = #{updateBy,jdbcType=VARCHAR},
-      update_date = #{updateDate,jdbcType=TIMESTAMP},
-      remarks = #{remarks,jdbcType=VARCHAR},
-      del_flag = #{delFlag,jdbcType=CHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        del_flag = #{delFlag,jdbcType=CHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <select id="selectList" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sysmanagement.pm_sys_role
+        where 1=1
+        <if test="name != null">
+            and `name` = #{name,jdbcType=VARCHAR}
+        </if>
+        <if test="updateBy != null">
+            and update_by = #{updateBy,jdbcType=VARCHAR}
+        </if>
+        <if test="updateDate != null">
+            and update_date = #{updateDate,jdbcType=TIMESTAMP}
+        </if>
+        <if test="remarks != null">
+            and remarks = #{remarks,jdbcType=VARCHAR}
+        </if>
+        <if test="delFlag != null">
+            and del_flag = #{delFlag,jdbcType=CHAR}
+        </if>
+    </select>
 </mapper>

@@ -2,6 +2,8 @@ package com.jluzh.sysmanagement.infra.mapper;
 
 import com.jluzh.sysmanagement.domain.entity.Role;
 
+import java.util.List;
+
 /**
  * <p> 角色mapper</p>
  * @ClassName ${NAME}.java
@@ -10,6 +12,9 @@ import com.jluzh.sysmanagement.domain.entity.Role;
  * @createTime 2019年11月26日 15:52:00
  */
 public interface RoleMapper {
+
+    List<Role> selectList(Role role);
+
     int deleteByPrimaryKey(Integer id);
 
     int insert(Role record);

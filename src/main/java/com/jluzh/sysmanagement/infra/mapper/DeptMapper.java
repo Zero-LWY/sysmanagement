@@ -2,6 +2,8 @@ package com.jluzh.sysmanagement.infra.mapper;
 
 import com.jluzh.sysmanagement.domain.entity.Dept;
 
+import java.util.List;
+
 /**
  * <p>部门mapper</p>
  * @ClassName ${NAME}.java
@@ -10,6 +12,9 @@ import com.jluzh.sysmanagement.domain.entity.Dept;
  * @createTime 2019年11月26日 15:51:00
  */
 public interface DeptMapper {
+    
+    List<Dept> selectList(Dept dept);
+    
     int deleteByPrimaryKey(Integer id);
 
     int insert(Dept record);

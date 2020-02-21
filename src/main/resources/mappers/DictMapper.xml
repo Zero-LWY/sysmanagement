@@ -1,166 +1,203 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jluzh.sysmanagement.infra.mapper.DictMapper">
-  <resultMap id="BaseResultMap" type="com.jluzh.sysmanagement.domain.entity.Dict">
-    <!--@mbg.generated-->
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="value" jdbcType="VARCHAR" property="value" />
-    <result column="label" jdbcType="VARCHAR" property="label" />
-    <result column="type" jdbcType="VARCHAR" property="type" />
-    <result column="description" jdbcType="VARCHAR" property="description" />
-    <result column="sort" jdbcType="DECIMAL" property="sort" />
-    <result column="parent_id" jdbcType="VARCHAR" property="parentId" />
-    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
-    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
-    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
-    <result column="del_flag" jdbcType="CHAR" property="delFlag" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    <!--@mbg.generated-->
-    id, `value`, `label`, `type`, description, sort, parent_id, update_by, update_date, 
-    remarks, del_flag
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    <!--@mbg.generated-->
-    select 
-    <include refid="Base_Column_List" />
-    from pm_sys_dict
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    <!--@mbg.generated-->
-    delete from pm_sys_dict
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.jluzh.sysmanagement.domain.entity.Dict" useGeneratedKeys="true">
-    <!--@mbg.generated-->
-    insert into pm_sys_dict (`value`, `label`, `type`, 
-      description, sort, parent_id, 
-      update_by, update_date, remarks, 
-      del_flag)
-    values (#{value,jdbcType=VARCHAR}, #{label,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
-      #{description,jdbcType=VARCHAR}, #{sort,jdbcType=DECIMAL}, #{parentId,jdbcType=VARCHAR}, 
-      #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, #{remarks,jdbcType=VARCHAR}, 
-      #{delFlag,jdbcType=CHAR})
-  </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.jluzh.sysmanagement.domain.entity.Dict" useGeneratedKeys="true">
-    <!--@mbg.generated-->
-    insert into pm_sys_dict
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="value != null">
-        `value`,
-      </if>
-      <if test="label != null">
-        `label`,
-      </if>
-      <if test="type != null">
-        `type`,
-      </if>
-      <if test="description != null">
-        description,
-      </if>
-      <if test="sort != null">
-        sort,
-      </if>
-      <if test="parentId != null">
-        parent_id,
-      </if>
-      <if test="updateBy != null">
-        update_by,
-      </if>
-      <if test="updateDate != null">
-        update_date,
-      </if>
-      <if test="remarks != null">
-        remarks,
-      </if>
-      <if test="delFlag != null">
-        del_flag,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="value != null">
-        #{value,jdbcType=VARCHAR},
-      </if>
-      <if test="label != null">
-        #{label,jdbcType=VARCHAR},
-      </if>
-      <if test="type != null">
-        #{type,jdbcType=VARCHAR},
-      </if>
-      <if test="description != null">
-        #{description,jdbcType=VARCHAR},
-      </if>
-      <if test="sort != null">
-        #{sort,jdbcType=DECIMAL},
-      </if>
-      <if test="parentId != null">
-        #{parentId,jdbcType=VARCHAR},
-      </if>
-      <if test="updateBy != null">
-        #{updateBy,jdbcType=VARCHAR},
-      </if>
-      <if test="updateDate != null">
-        #{updateDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="remarks != null">
-        #{remarks,jdbcType=VARCHAR},
-      </if>
-      <if test="delFlag != null">
-        #{delFlag,jdbcType=CHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.jluzh.sysmanagement.domain.entity.Dict">
-    <!--@mbg.generated-->
-    update pm_sys_dict
-    <set>
-      <if test="value != null">
-        `value` = #{value,jdbcType=VARCHAR},
-      </if>
-      <if test="label != null">
+    <resultMap id="BaseResultMap" type="com.jluzh.sysmanagement.domain.entity.Dict">
+        <!--@mbg.generated-->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="value" jdbcType="VARCHAR" property="value"/>
+        <result column="label" jdbcType="VARCHAR" property="label"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="description" jdbcType="VARCHAR" property="description"/>
+        <result column="sort" jdbcType="DECIMAL" property="sort"/>
+        <result column="parent_id" jdbcType="VARCHAR" property="parentId"/>
+        <result column="update_by" jdbcType="VARCHAR" property="updateBy"/>
+        <result column="update_date" jdbcType="TIMESTAMP" property="updateDate"/>
+        <result column="remarks" jdbcType="VARCHAR" property="remarks"/>
+        <result column="del_flag" jdbcType="CHAR" property="delFlag"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, `value`, `label`, `type`, description, sort, parent_id, update_by, update_date,
+        remarks, del_flag
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from pm_sys_dict
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        <!--@mbg.generated-->
+        delete from pm_sys_dict
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.jluzh.sysmanagement.domain.entity.Dict"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into pm_sys_dict (`value`, `label`, `type`,
+        description, sort, parent_id,
+        update_by, update_date, remarks,
+        del_flag)
+        values (#{value,jdbcType=VARCHAR}, #{label,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR},
+        #{description,jdbcType=VARCHAR}, #{sort,jdbcType=DECIMAL}, #{parentId,jdbcType=VARCHAR},
+        #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, #{remarks,jdbcType=VARCHAR},
+        #{delFlag,jdbcType=CHAR})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id"
+            parameterType="com.jluzh.sysmanagement.domain.entity.Dict" useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into pm_sys_dict
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="value != null">
+                `value`,
+            </if>
+            <if test="label != null">
+                `label`,
+            </if>
+            <if test="type != null">
+                `type`,
+            </if>
+            <if test="description != null">
+                description,
+            </if>
+            <if test="sort != null">
+                sort,
+            </if>
+            <if test="parentId != null">
+                parent_id,
+            </if>
+            <if test="updateBy != null">
+                update_by,
+            </if>
+            <if test="updateDate != null">
+                update_date,
+            </if>
+            <if test="remarks != null">
+                remarks,
+            </if>
+            <if test="delFlag != null">
+                del_flag,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="value != null">
+                #{value,jdbcType=VARCHAR},
+            </if>
+            <if test="label != null">
+                #{label,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="sort != null">
+                #{sort,jdbcType=DECIMAL},
+            </if>
+            <if test="parentId != null">
+                #{parentId,jdbcType=VARCHAR},
+            </if>
+            <if test="updateBy != null">
+                #{updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateDate != null">
+                #{updateDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="remarks != null">
+                #{remarks,jdbcType=VARCHAR},
+            </if>
+            <if test="delFlag != null">
+                #{delFlag,jdbcType=CHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.jluzh.sysmanagement.domain.entity.Dict">
+        <!--@mbg.generated-->
+        update pm_sys_dict
+        <set>
+            <if test="value != null">
+                `value` = #{value,jdbcType=VARCHAR},
+            </if>
+            <if test="label != null">
+                `label` = #{label,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                `type` = #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                description = #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="sort != null">
+                sort = #{sort,jdbcType=DECIMAL},
+            </if>
+            <if test="parentId != null">
+                parent_id = #{parentId,jdbcType=VARCHAR},
+            </if>
+            <if test="updateBy != null">
+                update_by = #{updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateDate != null">
+                update_date = #{updateDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="remarks != null">
+                remarks = #{remarks,jdbcType=VARCHAR},
+            </if>
+            <if test="delFlag != null">
+                del_flag = #{delFlag,jdbcType=CHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.jluzh.sysmanagement.domain.entity.Dict">
+        <!--@mbg.generated-->
+        update pm_sys_dict
+        set `value` = #{value,jdbcType=VARCHAR},
         `label` = #{label,jdbcType=VARCHAR},
-      </if>
-      <if test="type != null">
         `type` = #{type,jdbcType=VARCHAR},
-      </if>
-      <if test="description != null">
         description = #{description,jdbcType=VARCHAR},
-      </if>
-      <if test="sort != null">
         sort = #{sort,jdbcType=DECIMAL},
-      </if>
-      <if test="parentId != null">
         parent_id = #{parentId,jdbcType=VARCHAR},
-      </if>
-      <if test="updateBy != null">
         update_by = #{updateBy,jdbcType=VARCHAR},
-      </if>
-      <if test="updateDate != null">
         update_date = #{updateDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="remarks != null">
         remarks = #{remarks,jdbcType=VARCHAR},
-      </if>
-      <if test="delFlag != null">
-        del_flag = #{delFlag,jdbcType=CHAR},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.jluzh.sysmanagement.domain.entity.Dict">
-    <!--@mbg.generated-->
-    update pm_sys_dict
-    set `value` = #{value,jdbcType=VARCHAR},
-      `label` = #{label,jdbcType=VARCHAR},
-      `type` = #{type,jdbcType=VARCHAR},
-      description = #{description,jdbcType=VARCHAR},
-      sort = #{sort,jdbcType=DECIMAL},
-      parent_id = #{parentId,jdbcType=VARCHAR},
-      update_by = #{updateBy,jdbcType=VARCHAR},
-      update_date = #{updateDate,jdbcType=TIMESTAMP},
-      remarks = #{remarks,jdbcType=VARCHAR},
-      del_flag = #{delFlag,jdbcType=CHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        del_flag = #{delFlag,jdbcType=CHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <select id="selectList" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        where 1=1
+        <if test="value != null">
+            and `value` = #{value,jdbcType=VARCHAR}
+        </if>
+        <if test="label != null">
+            and `label` = #{label,jdbcType=VARCHAR}
+        </if>
+        <if test="type != null">
+            and `type` = #{type,jdbcType=VARCHAR}
+        </if>
+        <if test="description != null">
+            and `description` = #{description,jdbcType=VARCHAR}
+        </if>
+        <if test="sort != null">
+            and `sort` = #{sort,jdbcType=DECIMAL}
+        </if>
+        <if test="parentId != null">
+            and parent_id = #{parentId,jdbcType=VARCHAR}
+        </if>
+        <if test="updateBy != null">
+            and update_by = #{updateBy,jdbcType=VARCHAR}
+        </if>
+        <if test="updateDate != null">
+            and update_date = #{updateDate,jdbcType=TIMESTAMP}
+        </if>
+        <if test="remarks != null">
+            and remarks = #{remarks,jdbcType=VARCHAR}
+        </if>
+        <if test="delFlag != null">
+            and del_flag = #{delFlag,jdbcType=CHAR}
+        </if>
+    </select>
 </mapper>
