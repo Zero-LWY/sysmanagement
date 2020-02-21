@@ -26,7 +26,7 @@ public class Area implements Serializable {
     * 编号
     */
     @ApiModelProperty(name = "id", value = "id")
-    private Integer id;
+    private Long id;
 
     /**
     * 父级编号
