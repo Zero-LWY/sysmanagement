@@ -2,10 +2,10 @@ package com.jluzh.sysmanagement.app.service.impl;
 
 import com.jluzh.sysmanagement.app.service.MenuService;
 import com.jluzh.sysmanagement.domain.entity.Menu;
-import com.jluzh.sysmanagement.infra.mapper.MenuMapper;
+import com.jluzh.sysmanagement.domain.repository.MenuRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 /**
  * <p> 菜单服务实现类 </p>
  * @ClassName ${NAME}.java
@@ -14,45 +14,45 @@ import javax.annotation.Resource;
  * @createTime 2019年11月26日 15:51:00
  */
 @Service
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class MenuServiceImpl implements MenuService {
 
-    @Resource
-    private MenuMapper menuMapper;
+    private final MenuRepository menuRepository;
 
     
     @Override
     public int deleteByPrimaryKey(Integer id) {
-        return menuMapper.deleteByPrimaryKey(id);
+        return menuRepository.deleteByPrimaryKey(id);
     }
 
     
     @Override
     public int insert(Menu record) {
-        return menuMapper.insert(record);
+        return menuRepository.insert(record);
     }
 
     
     @Override
     public int insertSelective(Menu record) {
-        return menuMapper.insertSelective(record);
+        return menuRepository.insertSelective(record);
     }
 
     
     @Override
     public Menu selectByPrimaryKey(Integer id) {
-        return menuMapper.selectByPrimaryKey(id);
+        return menuRepository.selectByPrimaryKey(id);
     }
 
     
     @Override
     public int updateByPrimaryKeySelective(Menu record) {
-        return menuMapper.updateByPrimaryKeySelective(record);
+        return menuRepository.updateByPrimaryKeySelective(record);
     }
 
     
     @Override
     public int updateByPrimaryKey(Menu record) {
-        return menuMapper.updateByPrimaryKey(record);
+        return menuRepository.updateByPrimaryKey(record);
     }
 
 }

@@ -2,10 +2,10 @@ package com.jluzh.sysmanagement.app.service.impl;
 
 import com.jluzh.sysmanagement.app.service.RoleToDeptService;
 import com.jluzh.sysmanagement.domain.entity.RoleToDept;
-import com.jluzh.sysmanagement.infra.mapper.RoleToDeptMapper;
+import com.jluzh.sysmanagement.domain.repository.RoleToDeptRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 /**
  * <p> 角色部门对应服务实现类</p>
  * @ClassName ${NAME}.java
@@ -14,27 +14,27 @@ import javax.annotation.Resource;
  * @createTime 2019年11月26日 15:53:00
  */
 @Service
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class RoleToDeptServiceImpl implements RoleToDeptService {
 
-    @Resource
-    private RoleToDeptMapper roleToDeptMapper;
+    private final RoleToDeptRepository roleToDeptRepository;
 
     
     @Override
     public int deleteByPrimaryKey(Integer roleId, Integer deptId) {
-        return roleToDeptMapper.deleteByPrimaryKey(roleId,deptId);
+        return roleToDeptRepository.deleteByPrimaryKey(roleId,deptId);
     }
 
     
     @Override
     public int insert(RoleToDept record) {
-        return roleToDeptMapper.insert(record);
+        return roleToDeptRepository.insert(record);
     }
 
     
     @Override
     public int insertSelective(RoleToDept record) {
-        return roleToDeptMapper.insertSelective(record);
+        return roleToDeptRepository.insertSelective(record);
     }
 
 }

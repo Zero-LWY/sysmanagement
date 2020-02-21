@@ -2,10 +2,10 @@ package com.jluzh.sysmanagement.app.service.impl;
 
 import com.jluzh.sysmanagement.app.service.RoleToAreaService;
 import com.jluzh.sysmanagement.domain.entity.RoleToArea;
-import com.jluzh.sysmanagement.infra.mapper.RoleToAreaMapper;
+import com.jluzh.sysmanagement.domain.repository.RoleToAreaRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 /**
  * <p>角色区域对应服务实现类 </p>
  * @ClassName ${NAME}.java
@@ -14,27 +14,28 @@ import javax.annotation.Resource;
  * @createTime 2019年11月26日 15:52:00
  */
 @Service
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class RoleToAreaServiceImpl implements RoleToAreaService {
 
-    @Resource
-    private RoleToAreaMapper roleToAreaMapper;
+
+    private final RoleToAreaRepository roleToAreaRepository;
 
     
     @Override
     public int deleteByPrimaryKey(Integer roleId, Integer areaId) {
-        return roleToAreaMapper.deleteByPrimaryKey(roleId,areaId);
+        return roleToAreaRepository.deleteByPrimaryKey(roleId,areaId);
     }
 
     
     @Override
     public int insert(RoleToArea record) {
-        return roleToAreaMapper.insert(record);
+        return roleToAreaRepository.insert(record);
     }
 
     
     @Override
     public int insertSelective(RoleToArea record) {
-        return roleToAreaMapper.insertSelective(record);
+        return roleToAreaRepository.insertSelective(record);
     }
 
 }

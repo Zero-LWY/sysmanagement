@@ -2,10 +2,10 @@ package com.jluzh.sysmanagement.app.service.impl;
 
 import com.jluzh.sysmanagement.app.service.DictService;
 import com.jluzh.sysmanagement.domain.entity.Dict;
-import com.jluzh.sysmanagement.infra.mapper.DictMapper;
+import com.jluzh.sysmanagement.domain.repository.DictRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 /**
  * <p> 字典服务类实现</p>
  * @ClassName ${NAME}.java
@@ -14,45 +14,46 @@ import javax.annotation.Resource;
  * @createTime 2019年11月26日 15:51:00
  */
 @Service
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class DictServiceImpl implements DictService {
 
-    @Resource
-    private DictMapper dictMapper;
+
+    private final DictRepository dictRepository;
 
     
     @Override
     public int deleteByPrimaryKey(Integer id) {
-        return dictMapper.deleteByPrimaryKey(id);
+        return dictRepository.deleteByPrimaryKey(id);
     }
 
     
     @Override
     public int insert(Dict record) {
-        return dictMapper.insert(record);
+        return dictRepository.insert(record);
     }
 
     
     @Override
     public int insertSelective(Dict record) {
-        return dictMapper.insertSelective(record);
+        return dictRepository.insertSelective(record);
     }
 
     
     @Override
     public Dict selectByPrimaryKey(Integer id) {
-        return dictMapper.selectByPrimaryKey(id);
+        return dictRepository.selectByPrimaryKey(id);
     }
 
     
     @Override
     public int updateByPrimaryKeySelective(Dict record) {
-        return dictMapper.updateByPrimaryKeySelective(record);
+        return dictRepository.updateByPrimaryKeySelective(record);
     }
 
     
     @Override
     public int updateByPrimaryKey(Dict record) {
-        return dictMapper.updateByPrimaryKey(record);
+        return dictRepository.updateByPrimaryKey(record);
     }
 
 }

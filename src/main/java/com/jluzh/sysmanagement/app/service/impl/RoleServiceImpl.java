@@ -2,10 +2,10 @@ package com.jluzh.sysmanagement.app.service.impl;
 
 import com.jluzh.sysmanagement.app.service.RoleService;
 import com.jluzh.sysmanagement.domain.entity.Role;
-import com.jluzh.sysmanagement.infra.mapper.RoleMapper;
+import com.jluzh.sysmanagement.domain.repository.RoleRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 /**
  * <p>角色服务实现类 </p>
  * @ClassName ${NAME}.java
@@ -14,45 +14,46 @@ import javax.annotation.Resource;
  * @createTime 2019年11月26日 15:52:00
  */
 @Service
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class RoleServiceImpl implements RoleService {
 
-    @Resource
-    private RoleMapper roleMapper;
+
+    private final RoleRepository roleRepository;
 
     
     @Override
     public int deleteByPrimaryKey(Integer id) {
-        return roleMapper.deleteByPrimaryKey(id);
+        return roleRepository.deleteByPrimaryKey(id);
     }
 
     
     @Override
     public int insert(Role record) {
-        return roleMapper.insert(record);
+        return roleRepository.insert(record);
     }
 
     
     @Override
     public int insertSelective(Role record) {
-        return roleMapper.insertSelective(record);
+        return roleRepository.insertSelective(record);
     }
 
     
     @Override
     public Role selectByPrimaryKey(Integer id) {
-        return roleMapper.selectByPrimaryKey(id);
+        return roleRepository.selectByPrimaryKey(id);
     }
 
     
     @Override
     public int updateByPrimaryKeySelective(Role record) {
-        return roleMapper.updateByPrimaryKeySelective(record);
+        return roleRepository.updateByPrimaryKeySelective(record);
     }
 
     
     @Override
     public int updateByPrimaryKey(Role record) {
-        return roleMapper.updateByPrimaryKey(record);
+        return roleRepository.updateByPrimaryKey(record);
     }
 
 }

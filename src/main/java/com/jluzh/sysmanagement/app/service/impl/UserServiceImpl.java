@@ -2,7 +2,7 @@ package com.jluzh.sysmanagement.app.service.impl;
 
 import com.jluzh.sysmanagement.app.service.UserService;
 import com.jluzh.sysmanagement.domain.entity.User;
-import com.jluzh.sysmanagement.infra.mapper.UserMapper;
+import com.jluzh.sysmanagement.domain.repository.UserRepository;
 import com.jluzh.sysmanagement.infra.util.JedisUtil;
 import lombok.RequiredArgsConstructor;
 import org.apache.shiro.SecurityUtils;
@@ -27,13 +27,12 @@ import java.util.List;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class UserServiceImpl implements UserService {
 
-
-	private final UserMapper userMapper;
+	private final UserRepository userRepository;
 	private final JedisUtil jedisUtil;
 
 	@Override
 	public List<User> selectUserList(User user) {
-		return userMapper.selectUserList(user);
+		return userRepository.selectUserList(user);
 	}
 
 	@Override
@@ -76,14 +75,14 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public String resetPassword(User newUser, String code) {
 		String mail = newUser.getEmail();
-		User user = userMapper.selectByMail(mail);
+		User user = userRepository.selectByMail(mail);
 		if(user == null){
 			return "修改失败";
 		}
 		user.setPassword(newUser.getPassword());
 		if(jedisUtil.exists(mail) && jedisUtil.get(mail,String.class).equals(code)){
 			user.setUpdateTime(LocalDateTime.now());
-			userMapper.updateSelective(user);
+			userRepository.updateSelective(user);
 			jedisUtil.del(mail);
 			return "修改成功";
 		}

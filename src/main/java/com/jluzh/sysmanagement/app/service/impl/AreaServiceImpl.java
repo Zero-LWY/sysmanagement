@@ -2,10 +2,10 @@ package com.jluzh.sysmanagement.app.service.impl;
 
 import com.jluzh.sysmanagement.app.service.AreaService;
 import com.jluzh.sysmanagement.domain.entity.Area;
-import com.jluzh.sysmanagement.infra.mapper.AreaMapper;
+import com.jluzh.sysmanagement.domain.repository.AreaRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 /**
  * <p> 区域service实现类 </p>
  * @ClassName ${NAME}.java
@@ -14,45 +14,46 @@ import javax.annotation.Resource;
  * @createTime 2019年11月26日 15:47:00
  */
 @Service
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class AreaServiceImpl implements AreaService {
 
-    @Resource
-    private AreaMapper pmSysAreaMapper;
+    @Autowired
+    private final AreaRepository areaRepository;
 
     
     @Override
     public int deleteByPrimaryKey(Integer id) {
-        return pmSysAreaMapper.deleteByPrimaryKey(id);
+        return areaRepository.deleteByPrimaryKey(id);
     }
 
     
     @Override
     public int insert(Area record) {
-        return pmSysAreaMapper.insert(record);
+        return areaRepository.insert(record);
     }
 
     
     @Override
     public int insertSelective(Area record) {
-        return pmSysAreaMapper.insertSelective(record);
+        return areaRepository.insertSelective(record);
     }
 
     
     @Override
     public Area selectByPrimaryKey(Integer id) {
-        return pmSysAreaMapper.selectByPrimaryKey(id);
+        return areaRepository.selectByPrimaryKey(id);
     }
 
     
     @Override
     public int updateByPrimaryKeySelective(Area record) {
-        return pmSysAreaMapper.updateByPrimaryKeySelective(record);
+        return areaRepository.updateByPrimaryKeySelective(record);
     }
 
     
     @Override
     public int updateByPrimaryKey(Area record) {
-        return pmSysAreaMapper.updateByPrimaryKey(record);
+        return areaRepository.updateByPrimaryKey(record);
     }
 
 }
