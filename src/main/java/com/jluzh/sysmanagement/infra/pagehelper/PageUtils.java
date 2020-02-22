@@ -3,23 +3,18 @@ package com.jluzh.sysmanagement.infra.pagehelper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
-import java.util.List;
-
 public class PageUtils {
 
 	/**
 	 * 将分页信息封装到统一的接口
 	 * @param pageRequest
-	 * @param list
+	 * @param select
 	 * @return
 	 */
-	public static <T> Page<T> getPageResult(PageRequest pageRequest, List list) {
+	public static <T> Page<T> getPageResult(PageRequest pageRequest, Select select) {
 		PageHelper.startPage(pageRequest.getPage(),pageRequest.getSize());
 		//将查询的结果给pageinfo处理
-		PageInfo pageInfo = new PageInfo<>();
-		pageInfo.setSize(pageRequest.getSize());
-		pageInfo.setPageNum(pageRequest.getPage());
-		pageInfo.setList(list);
+		PageInfo pageInfo = new PageInfo<>(select.doSelect());
 
 		//创建结果集对象
 		Page<T> result = new Page<>();
