@@ -2,6 +2,8 @@ package com.jluzh.sysmanagement.api.controller.v1;
 
 import com.jluzh.sysmanagement.app.service.AreaService;
 import com.jluzh.sysmanagement.domain.entity.Area;
+import com.jluzh.sysmanagement.infra.pagehelper.Page;
+import com.jluzh.sysmanagement.infra.pagehelper.PageRequest;
 import com.jluzh.sysmanagement.infra.util.Results;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -31,10 +33,9 @@ public class AreaController {
 
 	@ApiOperation("分页获取区域列表")
 	@GetMapping
-	public ResponseEntity<List<Area>> list(final Area area//final PageRequest pageRequest
-								  ) {
-		//final Page<Area> list = areaService.pageList(pageRequest, area);
-		return Results.success(areaService.list(area));
+	public ResponseEntity<Page<Area>> list(final Area area,
+										   final PageRequest pageRequest) {
+		return Results.success(areaService.list(pageRequest, area));
 	}
 
 	@ApiOperation("根据ID获取区域详细信息")
@@ -53,7 +54,7 @@ public class AreaController {
 
 	@ApiOperation("更新区域")
 	@PutMapping
-	public ResponseEntity<Area> update(@RequestBody final  Area area) {
+	public ResponseEntity<Area> update(@RequestBody final Area area) {
 		areaService.updateByPrimaryKeySelective(area);
 		//SecurityTokenHelper.validToken(o2CustomerAddress);
 		//this.validObject(o2CustomerAddress);
@@ -63,7 +64,7 @@ public class AreaController {
 
 	@ApiOperation("删除区域")
 	@DeleteMapping
-	public ResponseEntity<?> remove(@RequestBody final  Area area) {
+	public ResponseEntity<?> remove(@RequestBody final Area area) {
 		areaService.deleteByPrimaryKey(area.getId());
 		//SecurityTokenHelper.validToken(o2CustomerAddress);
 		//o2CustomerAddressRepository.deleteByPrimaryKey(o2CustomerAddress);
@@ -77,8 +78,6 @@ public class AreaController {
 		//o2CustomerAddressRepository.batchDeleteByPrimaryKey(o2CustomerAddressList);
 		return Results.success();
 	}
-
-
 
 
 }

@@ -1,8 +1,8 @@
 package com.jluzh.sysmanagement.app.service;
 
 import com.jluzh.sysmanagement.domain.entity.Area;
-
-import java.util.List;
+import com.jluzh.sysmanagement.infra.pagehelper.Page;
+import com.jluzh.sysmanagement.infra.pagehelper.PageRequest;
 
 /**
  * <p> 区域service</p>
@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface AreaService {
 
-	List<Area> list(Area area);
+	Page<Area> list(PageRequest pageRequest, Area area);
 
 	int deleteByPrimaryKey(Long id);
 

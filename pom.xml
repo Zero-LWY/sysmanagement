@@ -41,8 +41,15 @@
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
-            <version>1.2.3</version>
+            <version>1.2.5</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.choerodon/choerodon-starter-mybatis -->
+<!--        <dependency>-->
+<!--            <groupId>io.choerodon</groupId>-->
+<!--            <artifactId>choerodon-starter-mybatis</artifactId>-->
+<!--            <version>0.14.0.RELEASE</version>-->
+<!--        </dependency>-->
         <!-- alibaba的druid数据库连接池 -->
         <dependency>
             <groupId>com.alibaba</groupId>

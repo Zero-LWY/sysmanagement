@@ -64,6 +64,8 @@ pagehelper:
   helperDialect: mysql
   # 启用合理化，如果pageNum < 1会查询第一页，如果pageNum > pages会查询最后一页
   reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
 mybatis:
   # mapper.xml包地址
   mapper-locations: classpath:mappers/*.xml
