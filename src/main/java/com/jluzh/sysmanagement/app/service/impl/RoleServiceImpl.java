@@ -3,6 +3,9 @@ package com.jluzh.sysmanagement.app.service.impl;
 import com.jluzh.sysmanagement.app.service.RoleService;
 import com.jluzh.sysmanagement.domain.entity.Role;
 import com.jluzh.sysmanagement.domain.repository.RoleRepository;
+import com.jluzh.sysmanagement.infra.pagehelper.Page;
+import com.jluzh.sysmanagement.infra.pagehelper.PageRequest;
+import com.jluzh.sysmanagement.infra.pagehelper.PageUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,8 +23,12 @@ public class RoleServiceImpl implements RoleService {
 
     private final RoleRepository roleRepository;
 
-    
-    @Override
+	@Override
+	public Page<Role> list(PageRequest pageRequest, Role role) {
+		return PageUtils.getPageResult(pageRequest,()->roleRepository.list(role));
+	}
+
+	@Override
     public int deleteByPrimaryKey(Integer id) {
         return roleRepository.deleteByPrimaryKey(id);
     }

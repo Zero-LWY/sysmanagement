@@ -2,6 +2,8 @@ package com.jluzh.sysmanagement.domain.repository;
 
 import com.jluzh.sysmanagement.domain.entity.Menu;
 
+import java.util.List;
+
 /**
  * <p> @Description TODO </p>
  *
@@ -11,6 +13,9 @@ import com.jluzh.sysmanagement.domain.entity.Menu;
  * @createTime 2019年11月26日 16:41:00
  */
 public interface MenuRepository {
+
+	List<Menu> selectList(Menu menu);
+
 	int deleteByPrimaryKey(Integer id);
 
 	int insert(Menu record);

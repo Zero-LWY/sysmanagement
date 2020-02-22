@@ -1,6 +1,8 @@
 package com.jluzh.sysmanagement.app.service;
 
 import com.jluzh.sysmanagement.domain.entity.Dict;
+import com.jluzh.sysmanagement.infra.pagehelper.Page;
+import com.jluzh.sysmanagement.infra.pagehelper.PageRequest;
 
 /**
  * <p> 字典服务类接口 </p>
@@ -11,6 +13,9 @@ import com.jluzh.sysmanagement.domain.entity.Dict;
  * @createTime 2019年11月26日 17:00:00
  */
 public interface DictService {
+
+	Page<Dict> list(PageRequest pageRequest, Dict dict);
+
 	int deleteByPrimaryKey(Integer id);
 
 	int insert(Dict record);

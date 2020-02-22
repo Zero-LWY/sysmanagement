@@ -3,6 +3,9 @@ package com.jluzh.sysmanagement.app.service.impl;
 import com.jluzh.sysmanagement.app.service.MenuService;
 import com.jluzh.sysmanagement.domain.entity.Menu;
 import com.jluzh.sysmanagement.domain.repository.MenuRepository;
+import com.jluzh.sysmanagement.infra.pagehelper.Page;
+import com.jluzh.sysmanagement.infra.pagehelper.PageRequest;
+import com.jluzh.sysmanagement.infra.pagehelper.PageUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,8 +22,12 @@ public class MenuServiceImpl implements MenuService {
 
     private final MenuRepository menuRepository;
 
-    
-    @Override
+	@Override
+	public Page<Menu> list(PageRequest pageRequest, Menu menu) {
+		return PageUtils.getPageResult(pageRequest,()-> menuRepository.selectList(menu));
+	}
+
+	@Override
     public int deleteByPrimaryKey(Integer id) {
         return menuRepository.deleteByPrimaryKey(id);
     }

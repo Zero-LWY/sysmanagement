@@ -31,20 +31,20 @@ public class DeptController {
 	private final DeptService deptService;
 
 
-	@ApiOperation("分页获取区域列表")
+	@ApiOperation("分页获取部门列表")
 	@GetMapping
 	public ResponseEntity<Page<Dept>> list(final Dept dept,
 										   final PageRequest pageRequest) {
 		return Results.success(deptService.list(pageRequest, dept));
 	}
 
-	@ApiOperation("根据ID获取区域详细信息")
+	@ApiOperation("根据ID获取部门详细信息")
 	@GetMapping("/{deptId}")
 	public ResponseEntity<Dept> detail(@PathVariable final Integer deptId) {
 		return Results.success(deptService.selectByPrimaryKey(deptId));
 	}
 
-	@ApiOperation("新增区域")
+	@ApiOperation("新增部门")
 	@PostMapping
 	public ResponseEntity<Dept> create(@RequestBody final Dept dept) {
 		//this.validObject(o2CustomerAddress);
@@ -52,7 +52,7 @@ public class DeptController {
 		return Results.success(dept);
 	}
 
-	@ApiOperation("更新区域")
+	@ApiOperation("更新部门信息")
 	@PutMapping
 	public ResponseEntity<Dept> update(@RequestBody final Dept dept) {
 		deptService.updateByPrimaryKeySelective(dept);
@@ -62,7 +62,7 @@ public class DeptController {
 		return Results.success(dept);
 	}
 
-	@ApiOperation("删除区域")
+	@ApiOperation("删除部门")
 	@DeleteMapping
 	public ResponseEntity<String> remove(@RequestBody final Dept dept) {
 		deptService.deleteByPrimaryKey(dept.getId());
@@ -71,7 +71,7 @@ public class DeptController {
 		return Results.success("删除成功");
 	}
 
-	@ApiOperation("批量删除区域")
+	@ApiOperation("批量删除部门")
 	@DeleteMapping("/batch")
 	public ResponseEntity<?> batchRemove(@RequestBody final List<Dept> deptList) {
 		//SecurityTokenHelper.validToken(o2CustomerAddressList);

@@ -27,7 +27,7 @@ public class UserController {
 	}
 
 	@ApiOperation("查找用户接口")
-	@RequiresPermissions(value = {"user:list", "user:info"}, logical = Logical.AND)
+	@RequiresPermissions(value = {"user:selectList", "user:info"}, logical = Logical.AND)
 	@GetMapping("/find/{id}")
 	public User findById(@PathVariable("id") int id) {
 		User user = new User();

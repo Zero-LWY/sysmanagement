@@ -2,6 +2,8 @@ package com.jluzh.sysmanagement.domain.repository;
 
 import com.jluzh.sysmanagement.domain.entity.Role;
 
+import java.util.List;
+
 /**
  * <p> 角色仓库接口 </p>
  *
@@ -11,6 +13,9 @@ import com.jluzh.sysmanagement.domain.entity.Role;
  * @createTime 2019年11月26日 16:41:00
  */
 public interface RoleRepository {
+
+	List<Role> list(Role role);
+
 	int deleteByPrimaryKey(Integer id);
 
 	int insert(Role record);

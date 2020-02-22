@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<String> getAllPerms() {
 		List<String> list = new ArrayList<>();
-		list.add("user:list");
+		list.add("user:selectList");
 		list.add("user:info");
 		list.add("user:save");
 		list.add("user:update");
@@ -68,7 +68,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<String> getUserPerms(Integer userId) {
 		List<String> list = new ArrayList<>();
-		list.add("user:list");
+		list.add("user:selectList");
 		return list;
 	}
 

@@ -6,6 +6,8 @@ import com.jluzh.sysmanagement.infra.mapper.RoleMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
  * <p> 角色仓库实现类 </p>
  *
@@ -18,6 +20,12 @@ import org.springframework.stereotype.Component;
 public class RoleRepositoryImpl implements RoleRepository {
 	@Autowired
 	private RoleMapper roleMapper;
+
+	@Override
+	public List<Role> list(Role role) {
+		return roleMapper.selectList(role);
+	}
+
 	@Override
 	public int deleteByPrimaryKey(Integer id) {
 		return roleMapper.deleteByPrimaryKey(id);

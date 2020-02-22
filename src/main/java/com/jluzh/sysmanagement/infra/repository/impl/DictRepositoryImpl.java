@@ -6,6 +6,8 @@ import com.jluzh.sysmanagement.infra.mapper.DictMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
  * <p> 字典仓库实现类</p>
  *
@@ -18,6 +20,13 @@ import org.springframework.stereotype.Component;
 public class DictRepositoryImpl implements DictRepository {
 	@Autowired
 	private DictMapper dictMapper;
+
+
+	@Override
+	public List<Dict> list(Dict dict) {
+		return dictMapper.selectList(dict);
+	}
+
 	@Override
 	public int deleteByPrimaryKey(Integer id) {
 		return dictMapper.deleteByPrimaryKey(id);

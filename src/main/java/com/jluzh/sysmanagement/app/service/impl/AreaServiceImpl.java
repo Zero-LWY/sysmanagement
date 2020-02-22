@@ -31,7 +31,7 @@ public class AreaServiceImpl implements AreaService {
     }
 
     @Override
-    public int deleteByPrimaryKey(Long id) {
+    public int deleteByPrimaryKey(Integer id) {
         return areaRepository.deleteByPrimaryKey(id);
     }
 
@@ -49,7 +49,7 @@ public class AreaServiceImpl implements AreaService {
 
     
     @Override
-    public Area selectByPrimaryKey(Long id) {
+    public Area selectByPrimaryKey(Integer id) {
         return areaRepository.selectByPrimaryKey(id);
     }
 

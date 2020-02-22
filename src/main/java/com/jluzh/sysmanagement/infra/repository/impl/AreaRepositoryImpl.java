@@ -28,7 +28,7 @@ public class AreaRepositoryImpl implements AreaRepository {
 	}
 
 	@Override
-	public int deleteByPrimaryKey(Long id) {
+	public int deleteByPrimaryKey(Integer id) {
 		return areaMapper.deleteByPrimaryKey(id);
 	}
 
@@ -43,7 +43,7 @@ public class AreaRepositoryImpl implements AreaRepository {
 	}
 
 	@Override
-	public Area selectByPrimaryKey(Long id) {
+	public Area selectByPrimaryKey(Integer id) {
 		return areaMapper.selectByPrimaryKey(id);
 	}
 

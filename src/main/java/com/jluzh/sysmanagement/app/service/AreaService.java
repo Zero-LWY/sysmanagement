@@ -16,13 +16,13 @@ public interface AreaService {
 
 	Page<Area> list(PageRequest pageRequest, Area area);
 
-	int deleteByPrimaryKey(Long id);
+	int deleteByPrimaryKey(Integer id);
 
 	int insert(Area record);
 
 	int insertSelective(Area record);
 
-	Area selectByPrimaryKey(Long id);
+	Area selectByPrimaryKey(Integer id);
 
 	int updateByPrimaryKeySelective(Area record);
 

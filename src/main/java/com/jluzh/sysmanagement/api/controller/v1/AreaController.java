@@ -40,7 +40,7 @@ public class AreaController {
 
 	@ApiOperation("根据ID获取区域详细信息")
 	@GetMapping("/{areaId}")
-	public ResponseEntity<Area> detail(@PathVariable final Long areaId) {
+	public ResponseEntity<Area> detail(@PathVariable final Integer areaId) {
 		return Results.success(areaService.selectByPrimaryKey(areaId));
 	}
 

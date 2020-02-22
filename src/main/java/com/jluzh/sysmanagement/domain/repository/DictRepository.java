@@ -2,6 +2,8 @@ package com.jluzh.sysmanagement.domain.repository;
 
 import com.jluzh.sysmanagement.domain.entity.Dict;
 
+import java.util.List;
+
 /**
  * <p> 字典仓库 </p>
  *
@@ -11,6 +13,9 @@ import com.jluzh.sysmanagement.domain.entity.Dict;
  * @createTime 2019年11月26日 16:41:00
  */
 public interface DictRepository {
+
+	List<Dict> list(Dict dict);
+
 	int deleteByPrimaryKey(Integer id);
 
 	int insert(Dict record);

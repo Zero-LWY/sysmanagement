@@ -3,6 +3,9 @@ package com.jluzh.sysmanagement.app.service.impl;
 import com.jluzh.sysmanagement.app.service.DictService;
 import com.jluzh.sysmanagement.domain.entity.Dict;
 import com.jluzh.sysmanagement.domain.repository.DictRepository;
+import com.jluzh.sysmanagement.infra.pagehelper.Page;
+import com.jluzh.sysmanagement.infra.pagehelper.PageRequest;
+import com.jluzh.sysmanagement.infra.pagehelper.PageUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,8 +23,12 @@ public class DictServiceImpl implements DictService {
 
     private final DictRepository dictRepository;
 
-    
-    @Override
+	@Override
+	public Page<Dict> list(PageRequest pageRequest, Dict dict) {
+		return PageUtils.getPageResult(pageRequest,()->dictRepository.list(dict));
+	}
+
+	@Override
     public int deleteByPrimaryKey(Integer id) {
         return dictRepository.deleteByPrimaryKey(id);
     }
