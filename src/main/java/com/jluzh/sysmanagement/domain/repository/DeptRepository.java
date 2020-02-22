@@ -2,6 +2,8 @@ package com.jluzh.sysmanagement.domain.repository;
 
 import com.jluzh.sysmanagement.domain.entity.Dept;
 
+import java.util.List;
+
 /**
  * <p> 部门仓库 </p>
  *
@@ -11,6 +13,8 @@ import com.jluzh.sysmanagement.domain.entity.Dept;
  * @createTime 2019年11月26日 16:41:00
  */
 public interface DeptRepository {
+	List<Dept> selectList(Dept dept);
+
 	int deleteByPrimaryKey(Integer id);
 
 	int insert(Dept record);

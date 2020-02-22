@@ -2,8 +2,10 @@ package com.jluzh.sysmanagement.api.controller.v1;
 
 import com.jluzh.sysmanagement.domain.entity.User;
 import io.swagger.annotations.ApiOperation;
+import lombok.RequiredArgsConstructor;
 import org.apache.shiro.authz.annotation.Logical;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/user1")
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class UserController {
 	@ApiOperation("新增用户接口")
 	@PostMapping("/add")

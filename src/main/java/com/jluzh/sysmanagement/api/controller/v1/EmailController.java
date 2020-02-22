@@ -3,6 +3,7 @@ package com.jluzh.sysmanagement.api.controller.v1;
 import com.jluzh.sysmanagement.app.service.MailSenderService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/email")
 @Api(tags = "邮件相关接口", value = "邮件相关的API")
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class EmailController {
 	@Autowired
 	private MailSenderService mailSenderService;

@@ -1,6 +1,8 @@
 package com.jluzh.sysmanagement.api.controller.v1;
 
 import io.swagger.annotations.Api;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/dict")
 @Api(tags = "字典接口", value = "字典API")
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class DictCtroller {
 
 }

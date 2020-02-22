@@ -64,7 +64,7 @@ public class AreaController {
 
 	@ApiOperation("删除区域")
 	@DeleteMapping
-	public ResponseEntity<?> remove(@RequestBody final Area area) {
+	public ResponseEntity<String> remove(@RequestBody final Area area) {
 		areaService.deleteByPrimaryKey(area.getId());
 		//SecurityTokenHelper.validToken(o2CustomerAddress);
 		//o2CustomerAddressRepository.deleteByPrimaryKey(o2CustomerAddress);

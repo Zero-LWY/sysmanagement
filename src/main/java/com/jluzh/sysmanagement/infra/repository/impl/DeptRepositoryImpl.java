@@ -6,6 +6,8 @@ import com.jluzh.sysmanagement.infra.mapper.DeptMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
  * <p> 部门仓库实现类 </p>
  *
@@ -19,6 +21,11 @@ public class DeptRepositoryImpl implements DeptRepository {
 
 	@Autowired
 	private DeptMapper deptMapper;
+
+	@Override
+	public List<Dept> selectList(Dept dept) {
+		return deptMapper.selectList(dept);
+	}
 
 	@Override
 	public int deleteByPrimaryKey(Integer id) {

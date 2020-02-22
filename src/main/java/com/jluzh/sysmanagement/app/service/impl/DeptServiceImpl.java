@@ -3,6 +3,9 @@ package com.jluzh.sysmanagement.app.service.impl;
 import com.jluzh.sysmanagement.app.service.DeptService;
 import com.jluzh.sysmanagement.domain.entity.Dept;
 import com.jluzh.sysmanagement.domain.repository.DeptRepository;
+import com.jluzh.sysmanagement.infra.pagehelper.Page;
+import com.jluzh.sysmanagement.infra.pagehelper.PageRequest;
+import com.jluzh.sysmanagement.infra.pagehelper.PageUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +23,12 @@ public class DeptServiceImpl implements DeptService {
     @Autowired
     private final DeptRepository deptRepository;
 
-    
+    @Override
+    public Page<Dept> list(PageRequest pageRequest, Dept dept) {
+        return PageUtils.getPageResult(pageRequest,()->deptRepository.selectList(dept));
+    }
+
+
     @Override
     public int deleteByPrimaryKey(Integer id) {
         return deptRepository.deleteByPrimaryKey(id);

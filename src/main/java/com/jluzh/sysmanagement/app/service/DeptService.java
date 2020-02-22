@@ -1,6 +1,8 @@
 package com.jluzh.sysmanagement.app.service;
 
 import com.jluzh.sysmanagement.domain.entity.Dept;
+import com.jluzh.sysmanagement.infra.pagehelper.Page;
+import com.jluzh.sysmanagement.infra.pagehelper.PageRequest;
 
 /**
  * <p> 部门service</p>
@@ -11,6 +13,8 @@ import com.jluzh.sysmanagement.domain.entity.Dept;
  * @createTime 2019年11月26日 17:00:00
  */
 public interface DeptService {
+	Page<Dept> list(PageRequest pageRequest, Dept dept);
+
 	int deleteByPrimaryKey(Integer id);
 
 	int insert(Dept record);
