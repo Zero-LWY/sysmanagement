@@ -4,6 +4,7 @@ import com.jluzh.sysmanagement.app.service.UserService;
 import com.jluzh.sysmanagement.domain.entity.User;
 import com.jluzh.sysmanagement.domain.repository.UserRepository;
 import com.jluzh.sysmanagement.infra.util.JedisUtil;
+import com.jluzh.sysmanagement.infra.util.MD5Util;
 import lombok.RequiredArgsConstructor;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -38,6 +39,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User login(User user) {
 		try {
+			user.setPassword(MD5Util.md5(user.getPassword()));
 			UsernamePasswordToken token = new UsernamePasswordToken(user.getLoginName(), user.getPassword());
 			token.setRememberMe(true);
 			Subject subject = SecurityUtils.getSubject();

@@ -68,7 +68,7 @@ public class UserAuthorizingRealm extends AuthorizingRealm {
 		UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
 
 		User loginUser = new User();
-		loginUser.setPassword(String.copyValueOf(token.getPassword()));
+		loginUser.setPassword((String.copyValueOf(token.getPassword())));
 		loginUser.setLoginName(token.getUsername());
 		User user = userRepository.login(loginUser);
 		if(user == null){
