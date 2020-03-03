@@ -37,11 +37,15 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User login(User user) {
-		UsernamePasswordToken token = new UsernamePasswordToken(user.getLoginName(), user.getPassword());
-		token.setRememberMe(true);
-		Subject subject = SecurityUtils.getSubject();
-		subject.login(token);
-		return (User) subject.getPrincipal();
+		try {
+			UsernamePasswordToken token = new UsernamePasswordToken(user.getLoginName(), user.getPassword());
+			token.setRememberMe(true);
+			Subject subject = SecurityUtils.getSubject();
+			subject.login(token);
+			return (User) subject.getPrincipal();
+		}catch (Exception e){
+			return null;
+		}
 	}
 	/**
 	 * 获取所有权限

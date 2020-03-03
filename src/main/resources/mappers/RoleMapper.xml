@@ -126,4 +126,10 @@
             and del_flag = #{delFlag,jdbcType=CHAR}
         </if>
     </select>
+    <select id="selectByUserId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from pm_sys_user_role left join pm_sys_role on role_id = id
+        where user_id = #{userId,jdbcType=INTEGER}
+    </select>
 </mapper>

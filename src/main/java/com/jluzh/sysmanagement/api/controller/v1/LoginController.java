@@ -1,7 +1,9 @@
 package com.jluzh.sysmanagement.api.controller.v1;
 
+import com.alibaba.fastjson.JSON;
 import com.jluzh.sysmanagement.app.service.UserService;
 import com.jluzh.sysmanagement.domain.entity.User;
+import com.jluzh.sysmanagement.domain.repository.RoleRepository;
 import com.jluzh.sysmanagement.infra.util.Results;
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
@@ -11,8 +13,12 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * <p> 登录控制 </p>
@@ -30,15 +36,25 @@ import org.springframework.web.bind.annotation.RestController;
 public class LoginController {
 
 	private final UserService userService;
+
+	private final RoleRepository roleRepository;
+
 	/**
 	 * 登录
 	 *
 	 * @return
 	 */
 	@PostMapping("do_login")
-	public ResponseEntity<User> doLogin(User user) {
-		log.info("---------- username = " + user.getUserName() + ", " + "password = " + user.getPassword() + " ----------");
-		return Results.success(userService.login(user));
+	public ResponseEntity<Map> doLogin(@RequestBody User loginUser) {
+		log.info("---------- username = " + loginUser.getUserName() + ", " + "password = " + loginUser.getPassword() + " ----------");
+		User user = userService.login(loginUser);
+		Map<String,String> map = new HashMap<>(8);
+		if(user != null){
+			map.put("status","ok");
+			map.put("user", JSON.toJSONString(user));
+			map.put("role",roleRepository.selectByUserId(user.getUserId().intValue()).getName());
+		}
+		return Results.success(map);
 	}
 
 	@PostMapping("/reset")

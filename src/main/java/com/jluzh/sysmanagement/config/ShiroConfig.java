@@ -54,9 +54,9 @@ public class ShiroConfig {
 		ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
 		shiroFilterFactoryBean.setSecurityManager(securityManager);
 		//登录,无权限是跳转的路径
-		shiroFilterFactoryBean.setLoginUrl("/login/do_login");
+		shiroFilterFactoryBean.setLoginUrl("/user/login");
 		//登录成功后跳转的路径
-		shiroFilterFactoryBean.setSuccessUrl("/main");
+		shiroFilterFactoryBean.setSuccessUrl("/welcome");
 		//认证不通过跳转页面
 		shiroFilterFactoryBean.setUnauthorizedUrl("/error");
 

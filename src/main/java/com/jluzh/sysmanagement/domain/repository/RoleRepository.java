@@ -28,4 +28,6 @@ public interface RoleRepository {
 
 	int updateByPrimaryKey(Role record);
 
+	Role selectByUserId(Integer userId);
+
 }

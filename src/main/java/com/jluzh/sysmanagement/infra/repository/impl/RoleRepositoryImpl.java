@@ -55,4 +55,9 @@ public class RoleRepositoryImpl implements RoleRepository {
 	public int updateByPrimaryKey(Role record) {
 		return roleMapper.updateByPrimaryKey(record);
 	}
+
+	@Override
+	public Role selectByUserId(Integer userId) {
+		return roleMapper.selectByUserId(userId);
+	}
 }
