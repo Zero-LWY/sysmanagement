@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -48,6 +49,10 @@ public class MenuController {
 	@PostMapping
 	public ResponseEntity<Menu> create(@RequestBody final Menu menu) {
 		//this.validObject(o2CustomerAddress);
+		menu.setIsShow("1");
+		menu.setUpdateBy("1");
+		menu.setUpdateDate(LocalDateTime.now());
+		menu.setDelFlag("0");
 		menuService.insertSelective(menu);
 		return Results.success(menu);
 	}

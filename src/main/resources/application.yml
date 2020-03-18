@@ -81,7 +81,7 @@ logging:
     org.apache.ibatis: ${LOGGING_LEVEL:debug}
     org.mybatis: ${LOGGING_LEVEL:debug}
   file:
-    name: syslog
+    name: log/syslog
 management:
   endpoints:
     web:

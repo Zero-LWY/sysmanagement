@@ -11,43 +11,43 @@ import org.springframework.data.domain.Sort;
  * 2018/1/30
  **/
 public class PageRequest {
-	private int page;
-	private int size;
+	private int current;
+	private int pageSize;
 
 	public PageRequest() {
 	}
 
-	public PageRequest(int page, int size) {
-		this(page, size, null);
+	public PageRequest(int current, int pageSize) {
+		this(current, pageSize, null);
 	}
 
 	/**
 	 * 构造方法
 	 *
-	 * @param page page
-	 * @param size size
+	 * @param current current
+	 * @param pageSize pageSize
 	 * @param sort sort
 	 */
-	public PageRequest(int page, int size, Sort sort) {
-		this.page = page;
-		this.size = size;
+	public PageRequest(int current, int pageSize, Sort sort) {
+		this.current = current;
+		this.pageSize = pageSize;
 	}
 
 
-	public int getPage() {
-		return page;
+	public int getCurrent() {
+		return current;
 	}
 
-	public void setPage(int page) {
-		this.page = page;
+	public void setCurrent(int current) {
+		this.current = current;
 	}
 
-	public int getSize() {
-		return size;
+	public int getPageSize() {
+		return pageSize;
 	}
 
-	public void setSize(int size) {
-		this.size = size;
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
 	}
 
 }

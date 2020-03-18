@@ -20,30 +20,30 @@ import java.util.List;
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public class Page<E> extends AbstractList<E> {
 	private int totalPages;
-	private long totalElements;
+	private long total;
 	private int numberOfElements;
-	private int size;
-	private int number;
-	private List<E> content;
+	private int pageSize;
+	private int current;
+	private List<E> data;
 
 	public Page() {
-		content = new ArrayList<>();
+		data = new ArrayList<>();
 	}
 
 	/**
 	 * 分页封装对象构造函数
 	 *
-	 * @param content  content
+	 * @param data  data
 	 * @param pageInfo pageInfo
 	 * @param total    total
 	 */
-	public Page(List<E> content, PageInfo pageInfo, long total) {
-		this.content = content;
-		this.number = pageInfo.getPageNum();
-		this.size = pageInfo.getSize();
-		this.totalElements = total;
-		this.totalPages = (int) (total - 1) / size + 1;
-		this.numberOfElements = content.size();
+	public Page(List<E> data, PageInfo pageInfo, long total) {
+		this.data = data;
+		this.current = pageInfo.getPageNum();
+		this.pageSize = pageInfo.getSize();
+		this.total = total;
+		this.totalPages = (int) (total - 1) / pageSize + 1;
+		this.numberOfElements = data.size();
 
 	}
 
@@ -55,12 +55,12 @@ public class Page<E> extends AbstractList<E> {
 		this.totalPages = totalPages;
 	}
 
-	public long getTotalElements() {
-		return totalElements;
+	public long getTotal() {
+		return total;
 	}
 
-	public void setTotalElements(long totalElements) {
-		this.totalElements = totalElements;
+	public void setTotal(long total) {
+		this.total = total;
 	}
 
 	public int getNumberOfElements() {
@@ -71,38 +71,38 @@ public class Page<E> extends AbstractList<E> {
 		this.numberOfElements = numberOfElements;
 	}
 
-	public int getSize() {
-		return size;
+	public int getPageSize() {
+		return pageSize;
 	}
 
-	public void setSize(int size) {
-		this.size = size;
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
 	}
 
-	public int getNumber() {
-		return number;
+	public int getCurrent() {
+		return current;
 	}
 
-	public void setNumber(int number) {
-		this.number = number;
+	public void setCurrent(int current) {
+		this.current = current;
 	}
 
-	public List<E> getContent() {
-		return content;
+	public List<E> getData() {
+		return data;
 	}
 
-	public void setContent(List<E> content) {
-		this.content = content;
+	public void setData(List<E> data) {
+		this.data = data;
 	}
 
 	@Override
 	public E get(int i) {
-		return content.get(i);
+		return data.get(i);
 	}
 
 	@Override
 	public int size() {
-		return content.size();
+		return data.size();
 	}
 
 	@Override
@@ -122,30 +122,30 @@ public class Page<E> extends AbstractList<E> {
 		if (totalPages != page.totalPages) {
 			return false;
 		}
-		if (totalElements != page.totalElements) {
+		if (total != page.total) {
 			return false;
 		}
 		if (numberOfElements != page.numberOfElements) {
 			return false;
 		}
-		if (size != page.size) {
+		if (pageSize != page.pageSize) {
 			return false;
 		}
-		if (number != page.number) {
+		if (current != page.current) {
 			return false;
 		}
-		return content != null ? content.equals(page.content) : page.content == null;
+		return data != null ? data.equals(page.data) : page.data == null;
 	}
 
 	@Override
 	public int hashCode() {
 		int result = super.hashCode();
 		result = 31 * result + totalPages;
-		result = 31 * result + (int) (totalElements ^ (totalElements >>> 32));
+		result = 31 * result + (int) (total ^ (total >>> 32));
 		result = 31 * result + numberOfElements;
-		result = 31 * result + size;
-		result = 31 * result + number;
-		result = 31 * result + (content != null ? content.hashCode() : 0);
+		result = 31 * result + pageSize;
+		result = 31 * result + current;
+		result = 31 * result + (data != null ? data.hashCode() : 0);
 		return result;
 	}
 }
