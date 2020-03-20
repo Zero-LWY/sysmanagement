@@ -1,6 +1,5 @@
 package com.jluzh.sysmanagement.app.service;
 
-import com.jluzh.sysmanagement.api.dto.LoginUserDTO;
 import com.jluzh.sysmanagement.domain.entity.User;
 
 import java.util.List;
@@ -16,11 +15,15 @@ import java.util.List;
 public interface UserService {
 	List<User> selectUserList(User user);
 
-	User login(LoginUserDTO user);
+	User login(User user);
 
 	String resetPassword(User user,String code);
 
 	List<String> getAllPerms();
 
 	List<String> getUserPerms(Integer userId);
+
+	User findUserByEmail(String email);
+
+	User emailLogin(User user, String code);
 }

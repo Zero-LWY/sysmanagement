@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,7 +27,7 @@ public class EmailController {
 	@Autowired
 	private MailSenderService mailSenderService;
 
-	@PostMapping("send")
+	@GetMapping("/send")
 	@ApiOperation("发送邮件接口")
 	public ResponseEntity<String> sendMail(@Validated String mailAddress) {
 		return mailSenderService.resetPasswordSend(mailAddress);

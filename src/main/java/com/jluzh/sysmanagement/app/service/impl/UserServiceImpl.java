@@ -1,11 +1,9 @@
 package com.jluzh.sysmanagement.app.service.impl;
 
-import com.jluzh.sysmanagement.api.dto.LoginUserDTO;
 import com.jluzh.sysmanagement.app.service.UserService;
 import com.jluzh.sysmanagement.domain.entity.User;
 import com.jluzh.sysmanagement.domain.repository.UserRepository;
 import com.jluzh.sysmanagement.infra.util.JedisUtil;
-import com.jluzh.sysmanagement.infra.util.MD5Util;
 import lombok.RequiredArgsConstructor;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -38,9 +36,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User login(LoginUserDTO user) {
+	public User login(User user) {
 		try {
-			user.setPassword(MD5Util.md5(user.getPassword()));
 			UsernamePasswordToken token = new UsernamePasswordToken(user.getLoginName(), user.getPassword());
 			token.setRememberMe(true);
 			Subject subject = SecurityUtils.getSubject();
@@ -94,5 +91,24 @@ public class UserServiceImpl implements UserService {
 			return "修改成功";
 		}
 		return "验证码错误";
+	}
+
+	@Override
+	public User findUserByEmail(String email) {
+		return userRepository.selectByMail(email);
+	}
+
+
+	@Override
+	public User emailLogin(User user, String code) {
+		if(code == null){
+			return null;
+		}
+		if(code.equals(jedisUtil.get(user.getEmail(),String.class))){
+			user = userRepository.selectByMail(user.getEmail());
+			jedisUtil.del(user.getEmail());
+			return login(user);
+		}
+		return null;
 	}
 }

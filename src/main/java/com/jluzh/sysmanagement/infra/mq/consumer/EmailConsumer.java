@@ -59,7 +59,7 @@ public class EmailConsumer {
 			// 消费确认
 			channel.basicAck(tag, false);
 		} else {
-			channel.basicNack(tag, false, true);
+			channel.basicNack(tag, false, false);
 		}
 	}
 
