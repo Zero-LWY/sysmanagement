@@ -1,5 +1,6 @@
 package com.jluzh.sysmanagement.app.service;
 
+import com.jluzh.sysmanagement.api.dto.LoginUserDTO;
 import com.jluzh.sysmanagement.domain.entity.User;
 
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.List;
 public interface UserService {
 	List<User> selectUserList(User user);
 
-	User login(User user);
+	User login(LoginUserDTO user);
 
 	String resetPassword(User user,String code);
 

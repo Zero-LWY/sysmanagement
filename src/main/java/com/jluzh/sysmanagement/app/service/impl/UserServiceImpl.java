@@ -1,5 +1,6 @@
 package com.jluzh.sysmanagement.app.service.impl;
 
+import com.jluzh.sysmanagement.api.dto.LoginUserDTO;
 import com.jluzh.sysmanagement.app.service.UserService;
 import com.jluzh.sysmanagement.domain.entity.User;
 import com.jluzh.sysmanagement.domain.repository.UserRepository;
@@ -37,7 +38,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User login(User user) {
+	public User login(LoginUserDTO user) {
 		try {
 			user.setPassword(MD5Util.md5(user.getPassword()));
 			UsernamePasswordToken token = new UsernamePasswordToken(user.getLoginName(), user.getPassword());

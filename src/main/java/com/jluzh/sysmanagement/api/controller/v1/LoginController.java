@@ -1,6 +1,7 @@
 package com.jluzh.sysmanagement.api.controller.v1;
 
 import com.alibaba.fastjson.JSON;
+import com.jluzh.sysmanagement.api.dto.LoginUserDTO;
 import com.jluzh.sysmanagement.app.service.UserService;
 import com.jluzh.sysmanagement.domain.entity.User;
 import com.jluzh.sysmanagement.domain.repository.RoleRepository;
@@ -46,7 +47,7 @@ public class LoginController {
 	 * @return
 	 */
 	@PostMapping("do_login")
-	public ResponseEntity<Map> doLogin(@RequestBody User loginUser) {
+	public ResponseEntity<Map> doLogin(@RequestBody LoginUserDTO loginUser) {
 		log.info("---------- username = " + loginUser.getUserName() + ", " + "password = " + loginUser.getPassword() + " ----------");
 		User user = userService.login(loginUser);
 		Map<String,String> map = new HashMap<>(8);
