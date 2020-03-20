@@ -60,4 +60,9 @@ public class RoleRepositoryImpl implements RoleRepository {
 	public Role selectByUserId(Integer userId) {
 		return roleMapper.selectByUserId(userId);
 	}
+
+	@Override
+	public List<Role> selectByMenuId(Integer menuId) {
+		return roleMapper.selectByMenuId(menuId);
+	}
 }

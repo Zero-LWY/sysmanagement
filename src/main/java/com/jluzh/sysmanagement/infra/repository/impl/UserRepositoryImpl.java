@@ -40,4 +40,9 @@ public class UserRepositoryImpl implements UserRepository {
 	public Integer updateSelective(User user) {
 		return usermapper.updateSelective(user);
 	}
+
+	@Override
+	public List<Integer> findRoleId(Integer userId) {
+		return usermapper.selectRoleIdByUserId(userId);
+	}
 }

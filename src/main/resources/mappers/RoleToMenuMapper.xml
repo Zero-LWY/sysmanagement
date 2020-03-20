@@ -37,4 +37,9 @@
       </if>
     </trim>
   </insert>
+    <select id="selectList" resultMap="BaseResultMap">
+        select
+
+
+    </select>
 </mapper>

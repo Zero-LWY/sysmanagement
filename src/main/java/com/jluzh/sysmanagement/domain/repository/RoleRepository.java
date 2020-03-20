@@ -30,4 +30,5 @@ public interface RoleRepository {
 
 	Role selectByUserId(Integer userId);
 
+	List<Role> selectByMenuId(Integer menuId);
 }

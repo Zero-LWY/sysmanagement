@@ -20,4 +20,7 @@ public interface UserRepository {
 	User selectByMail(String mail);
 
 	Integer updateSelective(User user);
+
+
+	List<Integer> findRoleId(Integer userId);
 }

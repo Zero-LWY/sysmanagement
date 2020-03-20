@@ -117,5 +117,10 @@
         </set>
         where user_id = #{userId,jdbcType=BIGINT}
     </update>
+    <select id="selectRoleIdByUserId" resultType="java.lang.Integer">
+        select role_id
+        from pm_sys_user_role
+        where user_id = #{userId,jdbcType=INTEGER}
+    </select>
 
 </mapper>

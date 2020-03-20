@@ -132,4 +132,10 @@
         from pm_sys_user_role left join pm_sys_role on role_id = id
         where user_id = #{userId,jdbcType=INTEGER}
     </select>
+    <select id="selectByMenuId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from pm_sys_role_menu menu left join pm_sys_role role on role.id = menu.role_id
+        where menu.menu_id = #{menuId,jdbcType=INTEGER}
+    </select>
 </mapper>

@@ -1,5 +1,6 @@
 package com.jluzh.sysmanagement.domain.repository;
 
+import com.jluzh.sysmanagement.api.dto.MenuPermissionDTO;
 import com.jluzh.sysmanagement.domain.entity.Menu;
 
 import java.util.List;
@@ -27,4 +28,8 @@ public interface MenuRepository {
 	int updateByPrimaryKeySelective(Menu record);
 
 	int updateByPrimaryKey(Menu record);
+
+	List<String> selectByRoleId(Integer roleId);
+
+	int deletePermission(MenuPermissionDTO menuPermissionDTO);
 }

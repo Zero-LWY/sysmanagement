@@ -1,5 +1,6 @@
 package com.jluzh.sysmanagement.infra.repository.impl;
 
+import com.jluzh.sysmanagement.api.dto.MenuPermissionDTO;
 import com.jluzh.sysmanagement.domain.entity.Menu;
 import com.jluzh.sysmanagement.domain.repository.MenuRepository;
 import com.jluzh.sysmanagement.infra.mapper.MenuMapper;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * <p>菜单仓库接口 </p>
@@ -54,5 +56,17 @@ public class MenuRepositoryImpl implements MenuRepository {
 	@Override
 	public int updateByPrimaryKey(Menu record) {
 		return menuMapper.updateByPrimaryKey(record);
+	}
+
+
+	@Override
+	public List<String> selectByRoleId(Integer roleId) {
+		List<String> result = menuMapper.selectByRoleId(roleId).stream().filter(item -> !item.getTarget().isEmpty()).map(Menu::getTarget).map(String::trim).collect(Collectors.toList());
+		return result;
+	}
+
+	@Override
+	public int deletePermission(MenuPermissionDTO menuPermissionDTO) {
+		return menuMapper.deletePermission(menuPermissionDTO);
 	}
 }

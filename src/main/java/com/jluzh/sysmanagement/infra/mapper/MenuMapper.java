@@ -1,5 +1,6 @@
 package com.jluzh.sysmanagement.infra.mapper;
 
+import com.jluzh.sysmanagement.api.dto.MenuPermissionDTO;
 import com.jluzh.sysmanagement.domain.entity.Menu;
 
 import java.util.List;
@@ -25,4 +26,9 @@ public interface MenuMapper {
     int updateByPrimaryKeySelective(Menu record);
 
     int updateByPrimaryKey(Menu record);
+
+    List<Menu> selectByRoleId(Integer roleId);
+
+    int deletePermission(MenuPermissionDTO menuPermissionDTO);
+
 }

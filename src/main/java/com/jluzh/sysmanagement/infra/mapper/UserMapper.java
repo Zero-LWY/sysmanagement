@@ -22,4 +22,6 @@ public interface UserMapper {
 
 	 Integer updateSelective(User user);
 
+	 List<Integer> selectRoleIdByUserId(Integer userId);
+
 }

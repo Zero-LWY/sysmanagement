@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.jluzh.sysmanagement.app.service.UserService;
 import com.jluzh.sysmanagement.domain.entity.User;
 import com.jluzh.sysmanagement.domain.repository.RoleRepository;
+import com.jluzh.sysmanagement.domain.service.MenuPermissionService;
 import com.jluzh.sysmanagement.infra.util.Results;
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
@@ -36,7 +37,7 @@ import java.util.Map;
 public class LoginController {
 
 	private final UserService userService;
-
+	private final MenuPermissionService menuPermissionService;
 	private final RoleRepository roleRepository;
 
 	/**
@@ -52,7 +53,7 @@ public class LoginController {
 		if(user != null){
 			map.put("status","ok");
 			map.put("user", JSON.toJSONString(user));
-			map.put("role",roleRepository.selectByUserId(user.getUserId().intValue()).getName());
+			map.put("role",menuPermissionService.permission(user).toString());
 		}
 		return Results.success(map);
 	}
