@@ -9,6 +9,8 @@ import com.jluzh.sysmanagement.infra.pagehelper.PageUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 /**
  * <p> 菜单服务实现类 </p>
  * @ClassName ${NAME}.java
@@ -28,11 +30,12 @@ public class MenuServiceImpl implements MenuService {
 	}
 
 	@Override
-    public int deleteByPrimaryKey(Integer id) {
-        return menuRepository.deleteByPrimaryKey(id);
+	@Transactional(rollbackFor = Exception.class)
+    public int deleteByPrimaryKey(Integer menuId) {
+		menuRepository.deletePermissionByMenuId(menuId);
+        return menuRepository.deleteByPrimaryKey(menuId);
     }
 
-    
     @Override
     public int insert(Menu record) {
         return menuRepository.insert(record);

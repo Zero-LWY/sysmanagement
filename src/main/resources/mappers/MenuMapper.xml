@@ -250,4 +250,9 @@
         insert into pm_sys_role_menu(role_id, menu_id)
         VALUES (#{roleId,jdbcType=INTEGER}, #{menuId,jdbcType=INTEGER})
     </insert>
+    <delete id="deletePermissionByMenuId">
+        delete
+        from pm_sys_role_menu
+        where menu_id = #{menuId,jdbcType=INTEGER}
+    </delete>
 </mapper>

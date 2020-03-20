@@ -34,4 +34,6 @@ public interface MenuRepository {
 	int deletePermission(MenuPermissionDTO menuPermissionDTO);
 
 	int addPermission(MenuPermissionDTO menuPermissionDTO);
+
+	int deletePermissionByMenuId(Integer menuId);
 }
