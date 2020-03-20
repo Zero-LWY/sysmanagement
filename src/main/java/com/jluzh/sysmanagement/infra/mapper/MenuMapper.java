@@ -31,4 +31,6 @@ public interface MenuMapper {
 
     int deletePermission(MenuPermissionDTO menuPermissionDTO);
 
+    int insertMenuPermission(MenuPermissionDTO menuPermissionDTO);
+
 }

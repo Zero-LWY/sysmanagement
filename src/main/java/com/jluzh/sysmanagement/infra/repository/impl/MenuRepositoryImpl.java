@@ -69,4 +69,9 @@ public class MenuRepositoryImpl implements MenuRepository {
 	public int deletePermission(MenuPermissionDTO menuPermissionDTO) {
 		return menuMapper.deletePermission(menuPermissionDTO);
 	}
+
+	@Override
+	public int addPermission(MenuPermissionDTO menuPermissionDTO) {
+		return menuMapper.insertMenuPermission(menuPermissionDTO);
+	}
 }

@@ -44,13 +44,13 @@ public class MenuController {
 		return Results.success(menuService.list(pageRequest, menu));
 	}
 
-	@ApiOperation("根据ID获取字典详细信息")
+	@ApiOperation("根据ID获取菜单详细信息")
 	@GetMapping("/{menuId}")
 	public ResponseEntity<Menu> detail(@PathVariable final Integer menuId) {
 		return Results.success(menuService.selectByPrimaryKey(menuId));
 	}
 
-	@ApiOperation("新增字典值")
+	@ApiOperation("新增菜单值")
 	@PostMapping
 	public ResponseEntity<Menu> create(@RequestBody final Menu menu) {
 		//this.validObject(o2CustomerAddress);
@@ -62,7 +62,7 @@ public class MenuController {
 		return Results.success(menu);
 	}
 
-	@ApiOperation("更新字典值")
+	@ApiOperation("更新菜单")
 	@PutMapping
 	public ResponseEntity<Menu> update(@RequestBody final Menu menu) {
 		menuService.updateByPrimaryKeySelective(menu);
@@ -72,7 +72,7 @@ public class MenuController {
 		return Results.success(menu);
 	}
 
-	@ApiOperation("删除字典值")
+	@ApiOperation("删除菜单")
 	@DeleteMapping
 	public ResponseEntity<String> remove(@RequestBody final Menu menu) {
 		menuService.deleteByPrimaryKey(menu.getId());
@@ -105,5 +105,15 @@ public class MenuController {
 													 final PageRequest pageRequest) {
 		return Results.success(menuPermissionService.selectByMenuId(pageRequest, menuPermissionDTO.getMenuId()));
 	}
+
+
+	@ApiOperation("新增菜单值")
+	@PostMapping("/permission")
+	public ResponseEntity<String> create(@RequestBody final MenuPermissionDTO menuPermissionDTO) {
+		//this.validObject(o2CustomerAddress);
+		String s = menuRepository.addPermission(menuPermissionDTO) > 0 ? "修改成功" : "修改失败";
+		return Results.success(s);
+	}
+
 
 }

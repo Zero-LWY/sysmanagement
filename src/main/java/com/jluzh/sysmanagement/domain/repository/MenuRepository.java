@@ -32,4 +32,6 @@ public interface MenuRepository {
 	List<String> selectByRoleId(Integer roleId);
 
 	int deletePermission(MenuPermissionDTO menuPermissionDTO);
+
+	int addPermission(MenuPermissionDTO menuPermissionDTO);
 }

@@ -246,5 +246,8 @@
         where menu_id = #{menuId,jdbcType=INTEGER}
           and role_id = #{roleId,jdbcType=INTEGER}
     </delete>
-
+    <insert id="insertMenuPermission">
+        insert into pm_sys_role_menu(role_id, menu_id)
+        VALUES (#{roleId,jdbcType=INTEGER}, #{menuId,jdbcType=INTEGER})
+    </insert>
 </mapper>
