@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -47,6 +48,9 @@ public class AreaController {
 	@ApiOperation("新增区域")
 	@PostMapping
 	public ResponseEntity<Area> create(@RequestBody final Area area) {
+		area.setDelFlag("0");
+		area.setUpdateBy("1");
+		area.setUpdateDate(LocalDateTime.now());
 		//this.validObject(o2CustomerAddress);
 		areaService.insertSelective(area);
 		return Results.success(area);

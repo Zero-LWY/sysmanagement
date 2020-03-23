@@ -60,14 +60,7 @@ public class ShiroConfig {
 		//认证不通过跳转页面
 		shiroFilterFactoryBean.setUnauthorizedUrl("/error");
 
-		//添加登录过滤器
-//		Map<String, Filter> filters = new LinkedHashMap<>();
-//		// 这里注释的一行是我这次踩的一个小坑，我一开始按下面这么配置产生了一个我意料之外的问题
-//		// 详细分析见博客：https://www.guitu18.com/post/2020/01/06/64.html
-//		// filters.put("authLogin", authLoginFilter());
-//		// 正确的配置是需要我们自己new出来，不能将这个Filter交给Spring管理
-//		filters.put("authLogin", new AuthLoginFilter(500, "未登录或登录超时"));
-//		shiroFilterFactoryBean.setFilters(filters);
+
 
 		//配置拦截规则
 		Map<String,String> filterChainMap = new LinkedHashMap<>();

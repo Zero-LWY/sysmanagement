@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -47,6 +48,9 @@ public class DeptController {
 	@ApiOperation("新增部门")
 	@PostMapping
 	public ResponseEntity<Dept> create(@RequestBody final Dept dept) {
+		dept.setUpdateDate(LocalDateTime.now());
+		dept.setUpdateBy("0");
+		dept.setDelFlag("0");
 		//this.validObject(o2CustomerAddress);
 		deptService.insertSelective(dept);
 		return Results.success(dept);
