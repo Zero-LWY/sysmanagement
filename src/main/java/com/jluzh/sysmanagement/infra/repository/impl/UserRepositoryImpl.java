@@ -45,4 +45,34 @@ public class UserRepositoryImpl implements UserRepository {
 	public List<Integer> findRoleId(Integer userId) {
 		return usermapper.selectRoleIdByUserId(userId);
 	}
+
+	@Override
+	public int deleteByPrimaryKey(Integer userId) {
+		return usermapper.deleteByPrimaryKey(userId);
+	}
+
+	@Override
+	public int insert(User record) {
+		return usermapper.insert(record);
+	}
+
+	@Override
+	public int insertSelective(User record) {
+		return usermapper.insertSelective(record);
+	}
+
+	@Override
+	public User selectByPrimaryKey(Integer userId) {
+		return selectByPrimaryKey(userId);
+	}
+
+	@Override
+	public int updateByPrimaryKeySelective(User record) {
+		return usermapper.updateByPrimaryKeySelective(record);
+	}
+
+	@Override
+	public int updateByPrimaryKey(User record) {
+		return usermapper.updateByPrimaryKey(record);
+	}
 }

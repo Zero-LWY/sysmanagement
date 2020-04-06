@@ -3,6 +3,9 @@ package com.jluzh.sysmanagement.app.service.impl;
 import com.jluzh.sysmanagement.app.service.UserService;
 import com.jluzh.sysmanagement.domain.entity.User;
 import com.jluzh.sysmanagement.domain.repository.UserRepository;
+import com.jluzh.sysmanagement.infra.pagehelper.Page;
+import com.jluzh.sysmanagement.infra.pagehelper.PageRequest;
+import com.jluzh.sysmanagement.infra.pagehelper.PageUtils;
 import com.jluzh.sysmanagement.infra.util.JedisUtil;
 import lombok.RequiredArgsConstructor;
 import org.apache.shiro.SecurityUtils;
@@ -31,8 +34,8 @@ public class UserServiceImpl implements UserService {
 	private final JedisUtil jedisUtil;
 
 	@Override
-	public List<User> selectUserList(User user) {
-		return userRepository.selectUserList(user);
+	public Page<User> selectUserList(User user, PageRequest pageRequest) {
+		return PageUtils.getPageResult(pageRequest,() -> userRepository.selectUserList(user));
 	}
 
 	@Override
@@ -110,5 +113,36 @@ public class UserServiceImpl implements UserService {
 			return login(user);
 		}
 		return null;
+	}
+
+
+	@Override
+	public int deleteByPrimaryKey(Integer id) {
+		return userRepository.deleteByPrimaryKey(id);
+	}
+
+	@Override
+	public int insert(User user) {
+		return userRepository.insert(user);
+	}
+
+	@Override
+	public int insertSelective(User user) {
+		return userRepository.insertSelective(user);
+	}
+
+	@Override
+	public User selectByPrimaryKey(Integer id) {
+		return userRepository.selectByPrimaryKey(id);
+	}
+
+	@Override
+	public int updateByPrimaryKeySelective(User user) {
+		return userRepository.updateByPrimaryKeySelective(user);
+	}
+
+	@Override
+	public int updateByPrimaryKey(User user) {
+		return userRepository.updateByPrimaryKey(user);
 	}
 }

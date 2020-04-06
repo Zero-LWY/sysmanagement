@@ -1,12 +1,20 @@
 package com.jluzh.sysmanagement.api.controller.v1;
 
+import com.jluzh.sysmanagement.app.service.UserService;
 import com.jluzh.sysmanagement.domain.entity.User;
+import com.jluzh.sysmanagement.infra.pagehelper.Page;
+import com.jluzh.sysmanagement.infra.pagehelper.PageRequest;
+import com.jluzh.sysmanagement.infra.util.MD5Util;
+import com.jluzh.sysmanagement.infra.util.Results;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
 
 /**
  * <p> 用户接口</p>
@@ -20,10 +28,23 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/user")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class UserController {
+
+	private final UserService userService;
+
 	@ApiOperation("新增用户接口")
-	@PostMapping("/add")
-	public boolean addUser(@RequestBody User user) {
-		return false;
+	@PostMapping
+	public ResponseEntity<Integer> addUser(@RequestBody User user) {
+		user.setPassword(MD5Util.md5(user.getPassword()));
+		user.setUpdateTime(LocalDateTime.now());
+		user.setUpdateBy("1");
+		return Results.success(userService.insertSelective(user));
+	}
+
+
+	@ApiOperation("用户列表")
+	@GetMapping
+	public ResponseEntity<Page<User>> list(final User user ,final PageRequest pageRequest){
+		return Results.success(userService.selectUserList(user,pageRequest));
 	}
 
 	@ApiOperation("查找用户接口")
@@ -36,15 +57,15 @@ public class UserController {
 
 
 	@ApiOperation("更新  用户接口")
-	@PutMapping("/update")
-	public boolean update(@RequestBody User user) {
-		return true;
+	@PutMapping
+	public ResponseEntity<Integer> update(@RequestBody User user) {
+		return Results.success(userService.updateByPrimaryKeySelective(user));
 	}
 
 
 	@ApiOperation("删除用户接口")
-	@DeleteMapping("/delete/{id}")
-	public boolean delete(@PathVariable("id") int id) {
-		return true;
+	@DeleteMapping
+	public ResponseEntity<Integer> delete(Integer id) {
+		return Results.success(userService.deleteByPrimaryKey(id));
 	}
 }

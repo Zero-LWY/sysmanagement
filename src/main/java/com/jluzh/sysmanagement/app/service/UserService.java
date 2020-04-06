@@ -1,6 +1,8 @@
 package com.jluzh.sysmanagement.app.service;
 
 import com.jluzh.sysmanagement.domain.entity.User;
+import com.jluzh.sysmanagement.infra.pagehelper.Page;
+import com.jluzh.sysmanagement.infra.pagehelper.PageRequest;
 
 import java.util.List;
 
@@ -13,7 +15,19 @@ import java.util.List;
  * @createTime 2019年11月25日 18:58:00
  */
 public interface UserService {
-	List<User> selectUserList(User user);
+	Page<User> selectUserList(User user , PageRequest pageRequest);
+
+	int deleteByPrimaryKey(Integer id);
+
+	int insert(User user);
+
+	int insertSelective(User user);
+
+	User selectByPrimaryKey(Integer id);
+
+	int updateByPrimaryKeySelective(User user);
+
+	int updateByPrimaryKey(User user);
 
 	User login(User user);
 
